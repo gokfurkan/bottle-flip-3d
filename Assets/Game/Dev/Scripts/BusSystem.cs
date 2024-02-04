@@ -48,7 +48,13 @@ namespace Game.Dev.Scripts
         
         //Player
         
+        public static Action OnPlayerDead;
+        public static void CallPlayerDead() { OnPlayerDead?.Invoke(); }
+        
         public static Action OnJumpPlayer;
-        public static void CallJumpPlayerWithUpdate() { OnJumpPlayer?.Invoke(); }
+        public static void CallJumpPlayer() { OnJumpPlayer?.Invoke(); }
+        
+        public static Action OnResetJumpAmount;
+        public static void CallResetJumpAmount() { OnResetJumpAmount?.Invoke(); }
     }
 }
