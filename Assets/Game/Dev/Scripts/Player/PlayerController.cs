@@ -18,10 +18,7 @@ namespace Game.Dev.Scripts.Player
         
         //jump amount
         public int remainingJump;
-        public float timer;
         
-        //rotate
-        private Tween rotationTween;
         
         private void OnEnable()
         {
@@ -91,16 +88,19 @@ namespace Game.Dev.Scripts.Player
             var verticalOffset = Mathf.Sin(normalizedTime * Mathf.PI) * playerOptions.playerJumpOptions.jumpHeight;
             var targetPosition = Vector3.Lerp(initialPosition, jumpTarget, normalizedTime);
             
+            //set pos
             var newZPosition =  transform.position.z;
             var newPosition = new Vector3(targetPosition.x, targetPosition.y + verticalOffset, newZPosition);
             
-            var rotationAngle = 720f * normalizedTime;
-            
-            //set pos
             transform.position = newPosition;
             
+            
             //set rot
+            var rotationAngle = playerOptions.playerJumpOptions.rotateAmountPerJump * normalizedTime;
+            
             transform.eulerAngles = new Vector3(rotationAngle, 90f, 0f);
+            
+            //
             
             if (normalizedTime >= 1.0f)
             {

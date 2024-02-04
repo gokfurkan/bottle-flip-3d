@@ -13,7 +13,6 @@ namespace Game.Dev.Scripts.SO
     public class PlayerJumpOptions
     {
         public int totalJumpAmount;
-        public float addJumpAmountInterval;
         
         [Space(10)]
         public float jumpDistanceX;
@@ -22,5 +21,8 @@ namespace Game.Dev.Scripts.SO
         [Space(10)]
         public float jumpHeight;
         public float jumpDuration;
+
+        [Header("Rotate On Jump")] 
+        public float rotateAmountPerJump;
     }
 }
