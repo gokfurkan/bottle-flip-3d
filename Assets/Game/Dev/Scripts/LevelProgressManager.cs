@@ -68,8 +68,10 @@ namespace Game.Dev.Scripts
 
         private void SetLevelTexts()
         {
-            currentLevelText.text = SaveManager.instance.saveData.level + 1.ToString();
-            nextLevelText.text = SaveManager.instance.saveData.level + 2.ToString();
+            var level = SaveManager.instance.saveData.level;
+            
+            currentLevelText.text = (level + 1).ToString();
+            nextLevelText.text = (level + 2).ToString();
         }
     }
 }
