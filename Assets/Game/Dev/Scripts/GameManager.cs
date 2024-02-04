@@ -44,16 +44,22 @@ namespace Game.Dev.Scripts
         private void OnGameStart()
         {
             isGameStart = true;
+            
+            BusSystem.CallChangeCameraType(CameraType.Menu , 0);
         }
 
         private void OnLevelStart()
         {
             isLevelPlaying = true;
+            
+            BusSystem.CallChangeCameraType(CameraType.Game , 1);
         }
 
         private void OnLevelEnd(bool win)
         {
             if (isLevelEnd) return;
+            
+            BusSystem.CallChangeCameraType(CameraType.End , 1);
             
             isLevelPlaying = false;
             isLevelEnd = true;

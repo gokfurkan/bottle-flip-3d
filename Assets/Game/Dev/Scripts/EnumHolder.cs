@@ -27,7 +27,9 @@
 
     public enum CameraType
     {
-        
+        Menu,
+        Game,
+        End,
     }
 
     public enum AudioType

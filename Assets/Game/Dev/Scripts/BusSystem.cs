@@ -44,5 +44,11 @@ namespace Game.Dev.Scripts
         
         public static Action OnMouseClickUp;
         public static void CallMouseClickUp() { OnMouseClickUp?.Invoke(); }
+        
+        
+        //Player
+        
+        public static Action OnJumpPlayer;
+        public static void CallJumpPlayerWithUpdate() { OnJumpPlayer?.Invoke(); }
     }
 }
