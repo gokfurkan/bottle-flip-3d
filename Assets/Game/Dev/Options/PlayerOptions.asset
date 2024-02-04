@@ -15,7 +15,7 @@ MonoBehaviour:
   playerJumpOptions:
     totalJumpAmount: 2
     jumpDistanceX: 5
-    jumpDistanceY: 5
+    jumpDistanceY: 2
     jumpHeight: 3
-    jumpDuration: 1
+    jumpDuration: 0.85
     rotateAmountPerJump: 360

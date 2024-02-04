@@ -16,6 +16,7 @@
         Level, 
         Money, 
         Restart,
+        LevelProgress,
     }
 
     public enum LevelTextType

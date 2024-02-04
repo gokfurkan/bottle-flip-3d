@@ -40,6 +40,8 @@ namespace Game.Dev.Scripts.Player
 
         private void Start()
         {
+            BusSystem.CallSetLevelProgressPlayerPos(transform);
+            
             remainingJump = playerOptions.playerJumpOptions.totalJumpAmount;
         }
 

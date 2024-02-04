@@ -47,7 +47,7 @@ namespace Template.Scripts
 
         private void ActivateGamePanel()
         {
-            
+            Activate(PanelType.LevelProgress);
         }
 
         private void ActivateEndPanel(bool win)
