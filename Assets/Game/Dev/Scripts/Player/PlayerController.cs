@@ -8,6 +8,9 @@ namespace Game.Dev.Scripts.Player
     public class PlayerController : MonoBehaviour
     {
         public PlayerOptions playerOptions;
+
+        public GameObject unBrokenBottle;
+        public GameObject brokenBottle;
         
         //jump sequence
         private bool isJumping;
@@ -55,6 +58,8 @@ namespace Game.Dev.Scripts.Player
 
         private void PlayerDead()
         {
+            unBrokenBottle.SetActive(false);
+            brokenBottle.SetActive(true);
             BusSystem.CallLevelEnd(false);
         }
 

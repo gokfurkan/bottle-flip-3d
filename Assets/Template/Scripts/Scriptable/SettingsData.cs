@@ -19,6 +19,7 @@ namespace Template.Scripts
         public SaveData defaultSave;
 
         [Header("UI")] 
+        public float endPanelDelay;
         public string levelText;
         public string levelCompletedText;
         public string levelFailedText;

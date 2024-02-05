@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Game.Dev.Scripts;
@@ -56,6 +57,13 @@ namespace Template.Scripts
             DisableAll();
             
             Activate(PanelType.Money);
+
+            StartCoroutine(ActivateEndPanelDelay(win));
+        }
+
+        private IEnumerator ActivateEndPanelDelay(bool win)
+        {
+            yield return new WaitForSeconds(InitializeManager.instance.settingsData.endPanelDelay);
             
             if (win)
             {

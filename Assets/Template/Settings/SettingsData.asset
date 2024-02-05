@@ -29,6 +29,7 @@ MonoBehaviour:
     moneys: 0
     sound: 1
     haptic: 1
+  endPanelDelay: 1.25
   levelText: LEVEL
   levelCompletedText: COMPLETED
   levelFailedText: FAILED
