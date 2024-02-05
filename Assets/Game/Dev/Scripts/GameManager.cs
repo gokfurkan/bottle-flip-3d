@@ -1,6 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using Template.Scripts;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 namespace Game.Dev.Scripts
@@ -86,6 +87,8 @@ namespace Game.Dev.Scripts
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (EventSystem.current.IsPointerOverGameObject()) return;
+                
                 if (!isLevelPlaying)
                 {
                     OnLevelStart();
