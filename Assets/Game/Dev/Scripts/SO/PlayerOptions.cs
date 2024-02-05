@@ -25,4 +25,10 @@ namespace Game.Dev.Scripts.SO
         [Header("Rotate On Jump")] 
         public float rotateAmountPerJump;
     }
+
+    [Serializable]
+    public class PlayerSkinOptions
+    {
+        
+    }
 }

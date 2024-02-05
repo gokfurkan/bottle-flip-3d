@@ -56,21 +56,23 @@ namespace Template.Scripts
         {
             DisableAll();
             
-            Activate(PanelType.Money);
+            // Activate(PanelType.Money);
 
             StartCoroutine(ActivateEndPanelDelay(win));
         }
 
         private IEnumerator ActivateEndPanelDelay(bool win)
         {
-            yield return new WaitForSeconds(InitializeManager.instance.settingsData.endPanelDelay);
-            
             if (win)
             {
+                yield return new WaitForSeconds(InitializeManager.instance.settingsData.winPanelDelay);
+                
                 Activate(PanelType.Win);
             }
             else
             {
+                yield return new WaitForSeconds(InitializeManager.instance.settingsData.losePanelDelay);
+                
                 Activate(PanelType.Lose);
             }
         }

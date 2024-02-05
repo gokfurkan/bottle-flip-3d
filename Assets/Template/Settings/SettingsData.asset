@@ -27,9 +27,11 @@ MonoBehaviour:
   defaultSave:
     level: 0
     moneys: 0
-    sound: 1
+    sound: 0
     haptic: 1
-  endPanelDelay: 1.25
+    currentSkin: 0
+  winPanelDelay: 0.25
+  losePanelDelay: 1.25
   levelText: LEVEL
   levelCompletedText: COMPLETED
   levelFailedText: FAILED

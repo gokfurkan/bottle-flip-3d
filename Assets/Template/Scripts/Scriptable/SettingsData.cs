@@ -15,11 +15,14 @@ namespace Template.Scripts
         [Header("Game")]
         public int targetFPS;
 
-        [Header("Save")] 
-        public SaveData defaultSave;
+        // [Header("Save")] 
+        // public SaveData defaultSave;
 
         [Header("UI")] 
-        public float endPanelDelay;
+        public float winPanelDelay;
+        public float losePanelDelay;
+        
+        [Space(10)]
         public string levelText;
         public string levelCompletedText;
         public string levelFailedText;

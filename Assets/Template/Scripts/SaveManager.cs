@@ -34,7 +34,7 @@ namespace Template.Scripts
             }
             else
             {
-                saveData = InitializeManager.instance.settingsData.defaultSave;
+                saveData = new SaveData();
                 Debug.Log("No saved game state found.");
             }
         }

@@ -57,6 +57,10 @@ namespace Game.Dev.Scripts
         public static Action OnResetJumpAmount;
         public static void CallResetJumpAmount() { OnResetJumpAmount?.Invoke(); }
         
+        public static Action OnSetPlayerSkin;
+        public static void CallSetPlayerSkin() { OnSetPlayerSkin?.Invoke(); }
+
+        
         //Finish
         
         public static Action <Transform> OnSetLevelProgressPlayerPos;

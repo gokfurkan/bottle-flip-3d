@@ -10,6 +10,8 @@ namespace Game.Dev.Scripts
 
         public bool sound;
         public bool haptic;
+
+        public int currentSkin;
         
 
         public int GetLevel()

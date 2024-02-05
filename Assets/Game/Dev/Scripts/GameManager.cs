@@ -42,6 +42,32 @@ namespace Game.Dev.Scripts
             InputControl();
         }
         
+        private void InputControl()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (EventSystem.current.IsPointerOverGameObject()) return;
+                
+                if (!isLevelPlaying)
+                {
+                    OnLevelStart();
+                    BusSystem.CallLevelStart();
+                }
+
+                BusSystem.CallMouseClickDown();
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                BusSystem.CallMouseClicking();
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                BusSystem.CallMouseClickUp();
+            }
+        }
+        
         private void OnGameStart()
         {
             isGameStart = true;
@@ -81,32 +107,6 @@ namespace Game.Dev.Scripts
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
-        }
-
-        private void InputControl()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (EventSystem.current.IsPointerOverGameObject()) return;
-                
-                if (!isLevelPlaying)
-                {
-                    OnLevelStart();
-                    BusSystem.CallLevelStart();
-                }
-
-                BusSystem.CallMouseClickDown();
-            }
-
-            if (Input.GetMouseButton(0))
-            {
-                BusSystem.CallMouseClicking();
-            }
-
-            if (Input.GetMouseButtonUp(0))
-            {
-                BusSystem.CallMouseClickUp();
-            }
         }
     }
 }
