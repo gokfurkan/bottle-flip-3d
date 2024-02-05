@@ -7,6 +7,7 @@ namespace Game.Dev.Scripts.Player
     public class PlayerMovementController : MonoBehaviour
     {
         public PlayerOptions playerOptions;
+        public Rigidbody rb;
         
         private bool isJumping;
         private float jumpStartTime;
@@ -56,6 +57,9 @@ namespace Game.Dev.Scripts.Player
         
         private void StartArcJump()
         {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            
             var jumpOptions = playerOptions.playerJumpOptions;
             
             initialPosition = transform.position;
@@ -89,6 +93,8 @@ namespace Game.Dev.Scripts.Player
             if (normalizedTime >= 1.0f)
             {
                 isJumping = false;
+                
+                transform.eulerAngles = new Vector3(0, 90f, 0f);
             }
         }
 

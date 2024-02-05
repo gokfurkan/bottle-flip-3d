@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOptions: {fileID: 11400000, guid: 48354dad3ce5e124697e88834da3e936, type: 2}
+  rb: {fileID: 6987075947721864964}
 --- !u!114 &1563788081922407662
 MonoBehaviour:
   m_ObjectHideFlags: 0
