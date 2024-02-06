@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.Dev.Scripts.SO
+namespace Game.Dev.Scripts.ScriptableSO
 {
     [CreateAssetMenu(fileName = "PlayerOptions", menuName = "ScriptableObjects/PlayerOptions")]
     public class PlayerOptions : ScriptableObject

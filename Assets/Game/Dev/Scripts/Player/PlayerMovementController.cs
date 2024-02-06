@@ -1,5 +1,5 @@
 ﻿using System;
-using Game.Dev.Scripts.SO;
+using Game.Dev.Scripts.ScriptableSO;
 using UnityEngine;
 
 namespace Game.Dev.Scripts.Player

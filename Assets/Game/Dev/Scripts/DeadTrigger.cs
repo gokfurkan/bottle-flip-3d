@@ -1,7 +1,7 @@
 ﻿using Game.Dev.Scripts.Interfaces;
 using UnityEngine;
 
-namespace Game.Dev.Scripts.InteractableObjects
+namespace Game.Dev.Scripts
 {
     public class DeadTrigger : MonoBehaviour , IInteractable
     {
