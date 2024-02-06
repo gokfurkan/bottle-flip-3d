@@ -43,13 +43,14 @@ namespace Template.Scripts
             // Activate(PanelType.Money);
             // Activate(PanelType.Level);
             Activate(PanelType.OpenSettings);
-            Activate(PanelType.Restart);
+            // Activate(PanelType.Restart);
             Activate(PanelType.LevelProgress);
         }
 
         private void ActivateGamePanel()
         {
-            
+            DisableAll();
+            Activate(PanelType.LevelProgress);
         }
 
         private void ActivateEndPanel(bool win)
