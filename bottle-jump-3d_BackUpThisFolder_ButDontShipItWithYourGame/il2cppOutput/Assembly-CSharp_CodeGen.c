@@ -980,100 +980,130 @@ extern void BusSystem_CallPlayerDead_m71E5101E0097BF49055DCE5F586AC44819604EB7 (
 extern void BusSystem_CallJumpPlayer_m155067C14A93F15238ECD1FE4E1A4A8BE7ABC38E (void);
 // 0x000001EB System.Void Game.Dev.Scripts.BusSystem::CallResetJumpAmount()
 extern void BusSystem_CallResetJumpAmount_m09ABE3D3157CEC60C9F98B710B840857F7F7D91B (void);
-// 0x000001EC System.Void Game.Dev.Scripts.BusSystem::CallSetLevelProgressPlayerPos(UnityEngine.Transform)
+// 0x000001EC System.Void Game.Dev.Scripts.BusSystem::CallSetPlayerSkin()
+extern void BusSystem_CallSetPlayerSkin_m749F861B2882B39F3C41233D9B3F34CDBDB55A72 (void);
+// 0x000001ED System.Void Game.Dev.Scripts.BusSystem::CallSetLevelProgressPlayerPos(UnityEngine.Transform)
 extern void BusSystem_CallSetLevelProgressPlayerPos_m7A445FAF33EFE6C2C9C1A293CDA8F01D60881C9A (void);
-// 0x000001ED System.Void Game.Dev.Scripts.BusSystem::CallSetLevelProgressFinishPos(UnityEngine.Transform)
+// 0x000001EE System.Void Game.Dev.Scripts.BusSystem::CallSetLevelProgressFinishPos(UnityEngine.Transform)
 extern void BusSystem_CallSetLevelProgressFinishPos_m999351DC4F374DC6E1B0A25101117F98521C08E9 (void);
-// 0x000001EE System.Void Game.Dev.Scripts.FinishController::Start()
+// 0x000001EF System.Void Game.Dev.Scripts.DeadTrigger::Interact()
+extern void DeadTrigger_Interact_m5C4FEBB00A86DCC571DFC5B0DEAD04C6F1F7A3AB (void);
+// 0x000001F0 System.Void Game.Dev.Scripts.DeadTrigger::.ctor()
+extern void DeadTrigger__ctor_m90BE4ACCCD9D8F360C685636A4F4EFA3089F9849 (void);
+// 0x000001F1 System.Void Game.Dev.Scripts.FinishController::Start()
 extern void FinishController_Start_mEE9ECA6246647D245F8D9A4B0C36FD2BEF4A6E46 (void);
-// 0x000001EF System.Void Game.Dev.Scripts.FinishController::Interact()
+// 0x000001F2 System.Void Game.Dev.Scripts.FinishController::Interact()
 extern void FinishController_Interact_m27C32AD8EE105122F59E6EEBBC2EA58A9FCCC5EA (void);
-// 0x000001F0 System.Void Game.Dev.Scripts.FinishController::.ctor()
+// 0x000001F3 System.Void Game.Dev.Scripts.FinishController::.ctor()
 extern void FinishController__ctor_m6E3D1C408DAAD6E5DDBC554B5A49F58D6C1D9B6C (void);
-// 0x000001F1 System.Void Game.Dev.Scripts.GameManager::Initialize()
+// 0x000001F4 System.Void Game.Dev.Scripts.GameManager::Initialize()
 extern void GameManager_Initialize_mAD52B7033BC8316274C2817EBBD54DE4F38A0A66 (void);
-// 0x000001F2 System.Void Game.Dev.Scripts.GameManager::OnEnable()
+// 0x000001F5 System.Void Game.Dev.Scripts.GameManager::OnEnable()
 extern void GameManager_OnEnable_mEECDA0BF5CA515E6AADE875E5C0BEF85A8A38187 (void);
-// 0x000001F3 System.Void Game.Dev.Scripts.GameManager::OnDisable()
+// 0x000001F6 System.Void Game.Dev.Scripts.GameManager::OnDisable()
 extern void GameManager_OnDisable_mEBF71E9CBD740AF4F021316D93A57754AEAA8C8E (void);
-// 0x000001F4 System.Void Game.Dev.Scripts.GameManager::Update()
+// 0x000001F7 System.Void Game.Dev.Scripts.GameManager::Update()
 extern void GameManager_Update_m3CA21D8F1D6DFC331DAE7521A9EAAC6D430CA573 (void);
-// 0x000001F5 System.Void Game.Dev.Scripts.GameManager::OnGameStart()
-extern void GameManager_OnGameStart_m1BB1DFA1CCD3A2638EC7569C1FE51823ED996CA9 (void);
-// 0x000001F6 System.Void Game.Dev.Scripts.GameManager::OnLevelStart()
-extern void GameManager_OnLevelStart_m715D091B96403DE38A4039D54A7EC4C095898307 (void);
-// 0x000001F7 System.Void Game.Dev.Scripts.GameManager::OnLevelEnd(System.Boolean)
-extern void GameManager_OnLevelEnd_m948FE9B777867EFA293572F8C0D74B53E497403A (void);
-// 0x000001F8 System.Void Game.Dev.Scripts.GameManager::OnLevelLoad()
-extern void GameManager_OnLevelLoad_mEDC2AD5CED6E2E1661E538BA3C9EDB72A0F60D0F (void);
-// 0x000001F9 System.Void Game.Dev.Scripts.GameManager::InputControl()
+// 0x000001F8 System.Void Game.Dev.Scripts.GameManager::InputControl()
 extern void GameManager_InputControl_m616A1B367A99684291768D3E476D1E78BCBBB0CA (void);
-// 0x000001FA System.Void Game.Dev.Scripts.GameManager::.ctor()
+// 0x000001F9 System.Void Game.Dev.Scripts.GameManager::OnGameStart()
+extern void GameManager_OnGameStart_m1BB1DFA1CCD3A2638EC7569C1FE51823ED996CA9 (void);
+// 0x000001FA System.Void Game.Dev.Scripts.GameManager::OnLevelStart()
+extern void GameManager_OnLevelStart_m715D091B96403DE38A4039D54A7EC4C095898307 (void);
+// 0x000001FB System.Void Game.Dev.Scripts.GameManager::OnLevelEnd(System.Boolean)
+extern void GameManager_OnLevelEnd_m948FE9B777867EFA293572F8C0D74B53E497403A (void);
+// 0x000001FC System.Void Game.Dev.Scripts.GameManager::OnLevelLoad()
+extern void GameManager_OnLevelLoad_mEDC2AD5CED6E2E1661E538BA3C9EDB72A0F60D0F (void);
+// 0x000001FD System.Void Game.Dev.Scripts.GameManager::.ctor()
 extern void GameManager__ctor_m1F7341FE2AED164D994A5142208A91177D3554BA (void);
-// 0x000001FB System.Void Game.Dev.Scripts.LevelProgressManager::OnEnable()
+// 0x000001FE System.Void Game.Dev.Scripts.LevelProgressManager::OnEnable()
 extern void LevelProgressManager_OnEnable_m6440908087B67AA10955BA834DFEF62784B679A1 (void);
-// 0x000001FC System.Void Game.Dev.Scripts.LevelProgressManager::OnDisable()
+// 0x000001FF System.Void Game.Dev.Scripts.LevelProgressManager::OnDisable()
 extern void LevelProgressManager_OnDisable_m06AE832421BD15074A7F0849D2E3DCE0DCD51371 (void);
-// 0x000001FD System.Void Game.Dev.Scripts.LevelProgressManager::Start()
+// 0x00000200 System.Void Game.Dev.Scripts.LevelProgressManager::Start()
 extern void LevelProgressManager_Start_mC10DD74648DF3E14007BDB99A2B73538B143522F (void);
-// 0x000001FE System.Void Game.Dev.Scripts.LevelProgressManager::Update()
+// 0x00000201 System.Void Game.Dev.Scripts.LevelProgressManager::Update()
 extern void LevelProgressManager_Update_m042B610377A36218FB3820F6F4F3ABF278FACB1E (void);
-// 0x000001FF System.Void Game.Dev.Scripts.LevelProgressManager::SetCurrentDistance()
+// 0x00000202 System.Void Game.Dev.Scripts.LevelProgressManager::SetCurrentDistance()
 extern void LevelProgressManager_SetCurrentDistance_mDC136CE03010D51E6837B969284A7914726AF11C (void);
-// 0x00000200 System.Void Game.Dev.Scripts.LevelProgressManager::SetPlayerPos(UnityEngine.Transform)
+// 0x00000203 System.Void Game.Dev.Scripts.LevelProgressManager::SetPlayerPos(UnityEngine.Transform)
 extern void LevelProgressManager_SetPlayerPos_m8886BE36B21192BFFE94D9755918F8C2FB7FB08A (void);
-// 0x00000201 System.Void Game.Dev.Scripts.LevelProgressManager::SetFinishPos(UnityEngine.Transform)
+// 0x00000204 System.Void Game.Dev.Scripts.LevelProgressManager::SetFinishPos(UnityEngine.Transform)
 extern void LevelProgressManager_SetFinishPos_m79F52B6D1CBF7367541D7057428EF1F0D4864A67 (void);
-// 0x00000202 System.Void Game.Dev.Scripts.LevelProgressManager::SetTotalDistance()
+// 0x00000205 System.Void Game.Dev.Scripts.LevelProgressManager::SetTotalDistance()
 extern void LevelProgressManager_SetTotalDistance_mA1483E47C8D6AF17DA5F5351FB94775B7525654B (void);
-// 0x00000203 System.Void Game.Dev.Scripts.LevelProgressManager::SetLevelTexts()
+// 0x00000206 System.Void Game.Dev.Scripts.LevelProgressManager::SetLevelTexts()
 extern void LevelProgressManager_SetLevelTexts_mC6E0B572195A0232E4DFA4B6DF27A35561B24194 (void);
-// 0x00000204 System.Void Game.Dev.Scripts.LevelProgressManager::.ctor()
+// 0x00000207 System.Void Game.Dev.Scripts.LevelProgressManager::.ctor()
 extern void LevelProgressManager__ctor_m4E62BBBB79C28B4C7D04F942838A11DCE238596E (void);
-// 0x00000205 System.Int32 Game.Dev.Scripts.SaveData::GetLevel()
+// 0x00000208 System.Int32 Game.Dev.Scripts.SaveData::GetLevel()
 extern void SaveData_GetLevel_mF5EF9D5D503678F9C0C3BF895C7A72E7C5E762F2 (void);
-// 0x00000206 System.Int32 Game.Dev.Scripts.SaveData::GetMoneys()
+// 0x00000209 System.Int32 Game.Dev.Scripts.SaveData::GetMoneys()
 extern void SaveData_GetMoneys_m45A381B3D3ED580700EEA41375769D6982F28121 (void);
-// 0x00000207 System.Boolean Game.Dev.Scripts.SaveData::GetSound()
+// 0x0000020A System.Boolean Game.Dev.Scripts.SaveData::GetSound()
 extern void SaveData_GetSound_m4C4008C69C5E95BD4BA25A2292BE1D1D30239D8C (void);
-// 0x00000208 System.Boolean Game.Dev.Scripts.SaveData::GetHaptic()
+// 0x0000020B System.Boolean Game.Dev.Scripts.SaveData::GetHaptic()
 extern void SaveData_GetHaptic_mC4ED448FEC9FEF3CAFB8CAFE5438870A436284E3 (void);
-// 0x00000209 System.Void Game.Dev.Scripts.SaveData::.ctor()
+// 0x0000020C System.Void Game.Dev.Scripts.SaveData::.ctor()
 extern void SaveData__ctor_m5A3698EE9B9A1EA31839964A0F7AE2C78ED6F93D (void);
-// 0x0000020A System.Void Game.Dev.Scripts.SO.PlayerOptions::.ctor()
-extern void PlayerOptions__ctor_mFF41532F583BB74D48A14CA3C72FDF1A04F84871 (void);
-// 0x0000020B System.Void Game.Dev.Scripts.SO.PlayerJumpOptions::.ctor()
-extern void PlayerJumpOptions__ctor_mDE1712F9FE7225A68F0D2B5F505797BA9F4931C2 (void);
-// 0x0000020C System.Void Game.Dev.Scripts.Player.InteractionController::OnCollisionEnter(UnityEngine.Collision)
+// 0x0000020D System.Void Game.Dev.Scripts.ScriptableSO.PlayerOptions::.ctor()
+extern void PlayerOptions__ctor_m0DF3B8C90342F26DF32DF8FC97E384FDB6A0D31B (void);
+// 0x0000020E System.Void Game.Dev.Scripts.ScriptableSO.PlayerJumpOptions::.ctor()
+extern void PlayerJumpOptions__ctor_m2B1B25EDE07A96569C99CBFA12B39112F7B1C938 (void);
+// 0x0000020F System.Void Game.Dev.Scripts.ScriptableSO.PlayerSkinOptions::.ctor()
+extern void PlayerSkinOptions__ctor_m32793DAA80F378DBE9D06838F710F02578A6AD26 (void);
+// 0x00000210 System.Void Game.Dev.Scripts.Player.InteractionController::OnCollisionEnter(UnityEngine.Collision)
 extern void InteractionController_OnCollisionEnter_m5F75E6CAE3886D146A6556CEEA47C25D272779FE (void);
-// 0x0000020D System.Void Game.Dev.Scripts.Player.InteractionController::.ctor()
+// 0x00000211 System.Void Game.Dev.Scripts.Player.InteractionController::.ctor()
 extern void InteractionController__ctor_m04BE6C7D5A3D8C8D407DB0A6ABAEFF06B47A70B8 (void);
-// 0x0000020E System.Void Game.Dev.Scripts.Player.PlayerController::OnEnable()
+// 0x00000212 System.Void Game.Dev.Scripts.Player.PlayerController::OnEnable()
 extern void PlayerController_OnEnable_mEE231EADC570F3C402E2CA3C6A0A5395A922A367 (void);
-// 0x0000020F System.Void Game.Dev.Scripts.Player.PlayerController::OnDisable()
+// 0x00000213 System.Void Game.Dev.Scripts.Player.PlayerController::OnDisable()
 extern void PlayerController_OnDisable_mEACAFE9810CEC9457A004019E69F9B888AAA6240 (void);
-// 0x00000210 System.Void Game.Dev.Scripts.Player.PlayerController::Start()
+// 0x00000214 System.Void Game.Dev.Scripts.Player.PlayerController::Start()
 extern void PlayerController_Start_m82EC5873F2B3170FD83A7218E7868258A0AFC4EA (void);
-// 0x00000211 System.Void Game.Dev.Scripts.Player.PlayerController::Update()
-extern void PlayerController_Update_mD75389164BE3400B7C7881C7337500A8E100E38E (void);
-// 0x00000212 System.Void Game.Dev.Scripts.Player.PlayerController::PlayerDead()
+// 0x00000215 System.Void Game.Dev.Scripts.Player.PlayerController::PlayerDead()
 extern void PlayerController_PlayerDead_m468F9716C101D6ED6A101ABE085A89530583BCB8 (void);
-// 0x00000213 System.Void Game.Dev.Scripts.Player.PlayerController::JumpPlayer()
-extern void PlayerController_JumpPlayer_mF546BF50C66E0F1FA2DC26400191FCDF7C890675 (void);
-// 0x00000214 System.Void Game.Dev.Scripts.Player.PlayerController::StartArcJump()
-extern void PlayerController_StartArcJump_mE18BF32AB08D4BD0A143FAB2054FC45224A00E7B (void);
-// 0x00000215 System.Void Game.Dev.Scripts.Player.PlayerController::PerformArcJump()
-extern void PlayerController_PerformArcJump_m19D4B306FD56AFD094E579B68A40C185E741B265 (void);
-// 0x00000216 System.Void Game.Dev.Scripts.Player.PlayerController::ResetJumpAmount()
-extern void PlayerController_ResetJumpAmount_m0153874742B0884F4EE91DC14CF4F647B387A67B (void);
-// 0x00000217 System.Void Game.Dev.Scripts.Player.PlayerController::.ctor()
+// 0x00000216 System.Void Game.Dev.Scripts.Player.PlayerController::.ctor()
 extern void PlayerController__ctor_mC6A2B87A0EC79C060E57CACF3459B7B3A73744A5 (void);
-// 0x00000218 System.Void Game.Dev.Scripts.Interfaces.IInteractable::Interact()
-// 0x00000219 System.Void Game.Dev.Scripts.InteractableObjects.DeadTrigger::Interact()
-extern void DeadTrigger_Interact_mEFB70D6396031FC7E772166BF9BF4C4153737D56 (void);
-// 0x0000021A System.Void Game.Dev.Scripts.InteractableObjects.DeadTrigger::.ctor()
-extern void DeadTrigger__ctor_mA68BF6DC50F1342151231D9CB508EBB5A9F35DA3 (void);
-static Il2CppMethodPointer s_methodPointers[538] = 
+// 0x00000217 System.Void Game.Dev.Scripts.Player.PlayerMovementController::OnEnable()
+extern void PlayerMovementController_OnEnable_m5F0EFF978C5227E0896FED7E6212987AC4E2392F (void);
+// 0x00000218 System.Void Game.Dev.Scripts.Player.PlayerMovementController::OnDisable()
+extern void PlayerMovementController_OnDisable_m9D97A07B850D5F9AB1A823FDB440514299D361B2 (void);
+// 0x00000219 System.Void Game.Dev.Scripts.Player.PlayerMovementController::Start()
+extern void PlayerMovementController_Start_m2D288F39337AC975FEE0BCD07E7D426FDBB9FDB0 (void);
+// 0x0000021A System.Void Game.Dev.Scripts.Player.PlayerMovementController::Update()
+extern void PlayerMovementController_Update_mBE0DAEF3A2DFABF72F201B5BB5BB815E74E6F8C9 (void);
+// 0x0000021B System.Void Game.Dev.Scripts.Player.PlayerMovementController::JumpPlayer()
+extern void PlayerMovementController_JumpPlayer_m21D278248B6CC5AC94490407BA141615E1D4F245 (void);
+// 0x0000021C System.Void Game.Dev.Scripts.Player.PlayerMovementController::StartArcJump()
+extern void PlayerMovementController_StartArcJump_m9DB92D5A6F1B0FF85C49BF2C1BFB04A5316B85D9 (void);
+// 0x0000021D System.Void Game.Dev.Scripts.Player.PlayerMovementController::PerformArcJump()
+extern void PlayerMovementController_PerformArcJump_mBD29E1B5669FBF82B1ABBF377192622845DF1172 (void);
+// 0x0000021E System.Void Game.Dev.Scripts.Player.PlayerMovementController::ResetJumpAmount()
+extern void PlayerMovementController_ResetJumpAmount_m3126E354F0CB04FF544B9476ED33B923EB31D4B7 (void);
+// 0x0000021F System.Void Game.Dev.Scripts.Player.PlayerMovementController::.ctor()
+extern void PlayerMovementController__ctor_mF052D56FE684F051D16F1CDA005241FF4D36AE5E (void);
+// 0x00000220 System.Void Game.Dev.Scripts.Player.PlayerSkinController::OnEnable()
+extern void PlayerSkinController_OnEnable_m215517908C4157E15261EAA36E7A7F558C7C3B51 (void);
+// 0x00000221 System.Void Game.Dev.Scripts.Player.PlayerSkinController::OnDisable()
+extern void PlayerSkinController_OnDisable_mAE7A86AA90351EDF5678DD59E984B861468578C5 (void);
+// 0x00000222 System.Void Game.Dev.Scripts.Player.PlayerSkinController::Start()
+extern void PlayerSkinController_Start_m3BE235B962126345BD78F1CC9751984768A094CF (void);
+// 0x00000223 System.Void Game.Dev.Scripts.Player.PlayerSkinController::OnPlayerDead()
+extern void PlayerSkinController_OnPlayerDead_m6DB5F3BD60ED45E76F7F20451EFE8286CD2CEE68 (void);
+// 0x00000224 System.Void Game.Dev.Scripts.Player.PlayerSkinController::SetPlayerSkin()
+extern void PlayerSkinController_SetPlayerSkin_mD2F2C1D0D99CE42E6CD018D05672D996725B3C03 (void);
+// 0x00000225 System.Void Game.Dev.Scripts.Player.PlayerSkinController::SetUnBrokenSkin()
+extern void PlayerSkinController_SetUnBrokenSkin_m67F43A8CA99EA3061509C7A3ABF16EA2F9B40D77 (void);
+// 0x00000226 System.Void Game.Dev.Scripts.Player.PlayerSkinController::SetBrokenSkin()
+extern void PlayerSkinController_SetBrokenSkin_m52809B4111EDB11635D15D551AF17708405EC5BB (void);
+// 0x00000227 System.Void Game.Dev.Scripts.Player.PlayerSkinController::InitSkin()
+extern void PlayerSkinController_InitSkin_mE1750EC20BF3830AF038D1C64F5993D8CEA4725F (void);
+// 0x00000228 System.Void Game.Dev.Scripts.Player.PlayerSkinController::.ctor()
+extern void PlayerSkinController__ctor_m440D05CB3FF9D878E8F96655A8B84E3AF30D5A22 (void);
+// 0x00000229 System.Void Game.Dev.Scripts.Interfaces.IInteractable::Interact()
+static Il2CppMethodPointer s_methodPointers[553] = 
 {
 	EmptySprite_Get_mD5056C4F8DCDB4B094AC95F7D55E82CE441E6C0F,
 	EmptySprite_IsEmptySprite_m814D06D1833BD7CA7610FD0586C402D6E7BC5A56,
@@ -1566,8 +1596,11 @@ static Il2CppMethodPointer s_methodPointers[538] =
 	BusSystem_CallPlayerDead_m71E5101E0097BF49055DCE5F586AC44819604EB7,
 	BusSystem_CallJumpPlayer_m155067C14A93F15238ECD1FE4E1A4A8BE7ABC38E,
 	BusSystem_CallResetJumpAmount_m09ABE3D3157CEC60C9F98B710B840857F7F7D91B,
+	BusSystem_CallSetPlayerSkin_m749F861B2882B39F3C41233D9B3F34CDBDB55A72,
 	BusSystem_CallSetLevelProgressPlayerPos_m7A445FAF33EFE6C2C9C1A293CDA8F01D60881C9A,
 	BusSystem_CallSetLevelProgressFinishPos_m999351DC4F374DC6E1B0A25101117F98521C08E9,
+	DeadTrigger_Interact_m5C4FEBB00A86DCC571DFC5B0DEAD04C6F1F7A3AB,
+	DeadTrigger__ctor_m90BE4ACCCD9D8F360C685636A4F4EFA3089F9849,
 	FinishController_Start_mEE9ECA6246647D245F8D9A4B0C36FD2BEF4A6E46,
 	FinishController_Interact_m27C32AD8EE105122F59E6EEBBC2EA58A9FCCC5EA,
 	FinishController__ctor_m6E3D1C408DAAD6E5DDBC554B5A49F58D6C1D9B6C,
@@ -1575,11 +1608,11 @@ static Il2CppMethodPointer s_methodPointers[538] =
 	GameManager_OnEnable_mEECDA0BF5CA515E6AADE875E5C0BEF85A8A38187,
 	GameManager_OnDisable_mEBF71E9CBD740AF4F021316D93A57754AEAA8C8E,
 	GameManager_Update_m3CA21D8F1D6DFC331DAE7521A9EAAC6D430CA573,
+	GameManager_InputControl_m616A1B367A99684291768D3E476D1E78BCBBB0CA,
 	GameManager_OnGameStart_m1BB1DFA1CCD3A2638EC7569C1FE51823ED996CA9,
 	GameManager_OnLevelStart_m715D091B96403DE38A4039D54A7EC4C095898307,
 	GameManager_OnLevelEnd_m948FE9B777867EFA293572F8C0D74B53E497403A,
 	GameManager_OnLevelLoad_mEDC2AD5CED6E2E1661E538BA3C9EDB72A0F60D0F,
-	GameManager_InputControl_m616A1B367A99684291768D3E476D1E78BCBBB0CA,
 	GameManager__ctor_m1F7341FE2AED164D994A5142208A91177D3554BA,
 	LevelProgressManager_OnEnable_m6440908087B67AA10955BA834DFEF62784B679A1,
 	LevelProgressManager_OnDisable_m06AE832421BD15074A7F0849D2E3DCE0DCD51371,
@@ -1596,30 +1629,42 @@ static Il2CppMethodPointer s_methodPointers[538] =
 	SaveData_GetSound_m4C4008C69C5E95BD4BA25A2292BE1D1D30239D8C,
 	SaveData_GetHaptic_mC4ED448FEC9FEF3CAFB8CAFE5438870A436284E3,
 	SaveData__ctor_m5A3698EE9B9A1EA31839964A0F7AE2C78ED6F93D,
-	PlayerOptions__ctor_mFF41532F583BB74D48A14CA3C72FDF1A04F84871,
-	PlayerJumpOptions__ctor_mDE1712F9FE7225A68F0D2B5F505797BA9F4931C2,
+	PlayerOptions__ctor_m0DF3B8C90342F26DF32DF8FC97E384FDB6A0D31B,
+	PlayerJumpOptions__ctor_m2B1B25EDE07A96569C99CBFA12B39112F7B1C938,
+	PlayerSkinOptions__ctor_m32793DAA80F378DBE9D06838F710F02578A6AD26,
 	InteractionController_OnCollisionEnter_m5F75E6CAE3886D146A6556CEEA47C25D272779FE,
 	InteractionController__ctor_m04BE6C7D5A3D8C8D407DB0A6ABAEFF06B47A70B8,
 	PlayerController_OnEnable_mEE231EADC570F3C402E2CA3C6A0A5395A922A367,
 	PlayerController_OnDisable_mEACAFE9810CEC9457A004019E69F9B888AAA6240,
 	PlayerController_Start_m82EC5873F2B3170FD83A7218E7868258A0AFC4EA,
-	PlayerController_Update_mD75389164BE3400B7C7881C7337500A8E100E38E,
 	PlayerController_PlayerDead_m468F9716C101D6ED6A101ABE085A89530583BCB8,
-	PlayerController_JumpPlayer_mF546BF50C66E0F1FA2DC26400191FCDF7C890675,
-	PlayerController_StartArcJump_mE18BF32AB08D4BD0A143FAB2054FC45224A00E7B,
-	PlayerController_PerformArcJump_m19D4B306FD56AFD094E579B68A40C185E741B265,
-	PlayerController_ResetJumpAmount_m0153874742B0884F4EE91DC14CF4F647B387A67B,
 	PlayerController__ctor_mC6A2B87A0EC79C060E57CACF3459B7B3A73744A5,
+	PlayerMovementController_OnEnable_m5F0EFF978C5227E0896FED7E6212987AC4E2392F,
+	PlayerMovementController_OnDisable_m9D97A07B850D5F9AB1A823FDB440514299D361B2,
+	PlayerMovementController_Start_m2D288F39337AC975FEE0BCD07E7D426FDBB9FDB0,
+	PlayerMovementController_Update_mBE0DAEF3A2DFABF72F201B5BB5BB815E74E6F8C9,
+	PlayerMovementController_JumpPlayer_m21D278248B6CC5AC94490407BA141615E1D4F245,
+	PlayerMovementController_StartArcJump_m9DB92D5A6F1B0FF85C49BF2C1BFB04A5316B85D9,
+	PlayerMovementController_PerformArcJump_mBD29E1B5669FBF82B1ABBF377192622845DF1172,
+	PlayerMovementController_ResetJumpAmount_m3126E354F0CB04FF544B9476ED33B923EB31D4B7,
+	PlayerMovementController__ctor_mF052D56FE684F051D16F1CDA005241FF4D36AE5E,
+	PlayerSkinController_OnEnable_m215517908C4157E15261EAA36E7A7F558C7C3B51,
+	PlayerSkinController_OnDisable_mAE7A86AA90351EDF5678DD59E984B861468578C5,
+	PlayerSkinController_Start_m3BE235B962126345BD78F1CC9751984768A094CF,
+	PlayerSkinController_OnPlayerDead_m6DB5F3BD60ED45E76F7F20451EFE8286CD2CEE68,
+	PlayerSkinController_SetPlayerSkin_mD2F2C1D0D99CE42E6CD018D05672D996725B3C03,
+	PlayerSkinController_SetUnBrokenSkin_m67F43A8CA99EA3061509C7A3ABF16EA2F9B40D77,
+	PlayerSkinController_SetBrokenSkin_m52809B4111EDB11635D15D551AF17708405EC5BB,
+	PlayerSkinController_InitSkin_mE1750EC20BF3830AF038D1C64F5993D8CEA4725F,
+	PlayerSkinController__ctor_m440D05CB3FF9D878E8F96655A8B84E3AF30D5A22,
 	NULL,
-	DeadTrigger_Interact_mEFB70D6396031FC7E772166BF9BF4C4153737D56,
-	DeadTrigger__ctor_mA68BF6DC50F1342151231D9CB508EBB5A9F35DA3,
 };
 extern void ProceduralImageInfo__ctor_m9C82C2450F04451A0967776288FC81E66ED5B40A_AdjustorThunk (void);
 static Il2CppTokenAdjustorThunkPair s_adjustorThunks[1] = 
 {
 	{ 0x060001CE, ProceduralImageInfo__ctor_m9C82C2450F04451A0967776288FC81E66ED5B40A_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[538] = 
+static const int32_t s_InvokerIndices[553] = 
 {
 	6958,
 	6537,
@@ -2112,8 +2157,12 @@ static const int32_t s_InvokerIndices[538] =
 	6989,
 	6989,
 	6989,
+	6989,
 	6870,
 	6870,
+	4520,
+	4520,
+	4520,
 	4520,
 	4520,
 	4520,
@@ -2131,7 +2180,6 @@ static const int32_t s_InvokerIndices[538] =
 	4520,
 	4520,
 	4520,
-	4520,
 	3684,
 	3684,
 	4520,
@@ -2144,7 +2192,21 @@ static const int32_t s_InvokerIndices[538] =
 	4520,
 	4520,
 	4520,
+	4520,
 	3684,
+	4520,
+	4520,
+	4520,
+	4520,
+	4520,
+	4520,
+	4520,
+	4520,
+	4520,
+	4520,
+	4520,
+	4520,
+	4520,
 	4520,
 	4520,
 	4520,
@@ -2157,8 +2219,6 @@ static const int32_t s_InvokerIndices[538] =
 	4520,
 	4520,
 	0,
-	4520,
-	4520,
 };
 static const Il2CppTokenRangePair s_rgctxIndices[5] = 
 {
@@ -2215,7 +2275,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	538,
+	553,
 	s_methodPointers,
 	1,
 	s_adjustorThunks,
