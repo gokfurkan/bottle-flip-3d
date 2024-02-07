@@ -17,6 +17,8 @@
         Money, 
         Restart,
         LevelProgress,
+        Shop,
+        OpenShop,
     }
 
     public enum LevelTextType
@@ -36,5 +38,12 @@
     public enum AudioType
     {
         GameStart,
+    }
+    
+    public enum SkinRarity
+    {
+        Standard,
+        Vip,
+        Epic
     }
 }

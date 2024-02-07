@@ -43,6 +43,7 @@ namespace Template.Scripts
             // Activate(PanelType.Money);
             // Activate(PanelType.Level);
             Activate(PanelType.OpenSettings);
+            Activate(PanelType.OpenShop);
             // Activate(PanelType.Restart);
             Activate(PanelType.LevelProgress);
         }
@@ -88,6 +89,18 @@ namespace Template.Scripts
         {
             Activate(PanelType.Settings , false);
             Activate(PanelType.OpenSettings);
+        }
+        
+        public void ActivateShopPanel()
+        {
+            Activate(PanelType.OpenShop , false);
+            Activate(PanelType.Shop);
+        }
+
+        public void DeActivateShopPanel()
+        {
+            Activate(PanelType.Shop , false);
+            Activate(PanelType.OpenShop);
         }
 
         public void ActivateDevPanel()
