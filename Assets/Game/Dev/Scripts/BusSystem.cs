@@ -68,5 +68,13 @@ namespace Game.Dev.Scripts
         
         public static Action <Transform> OnSetLevelProgressFinishPos;
         public static void CallSetLevelProgressFinishPos(Transform finish) { OnSetLevelProgressFinishPos?.Invoke(finish); }
+        
+        //Shop
+        
+        public static Action OnChangeShopPanelPage;
+        public static void CallChangeShopPanelPage() { OnChangeShopPanelPage?.Invoke(); }
+        
+        public static Action OnSetExclamationMarkEnabled;
+        public static void CallSetExclamationMarkEnabled() { OnSetExclamationMarkEnabled?.Invoke(); }
     }
 }

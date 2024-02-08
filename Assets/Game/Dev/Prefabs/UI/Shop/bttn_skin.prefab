@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 7792788424665062668}
   - component: {fileID: 7792788424665062669}
   - component: {fileID: 7792788424665062670}
+  - component: {fileID: 6271594680848489244}
   m_Layer: 5
   m_Name: bttn_skin
   m_TagString: Untagged
@@ -188,3 +189,16 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6271594680848489244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7792788424665062672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d4794fd0174c7589f124ec757879c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonOptions: []

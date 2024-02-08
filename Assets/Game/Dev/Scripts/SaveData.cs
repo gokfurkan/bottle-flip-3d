@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Game.Dev.Scripts
 {
@@ -12,6 +13,8 @@ namespace Game.Dev.Scripts
         public bool haptic;
 
         public int currentSkin;
+        public int firstSetUnlockStatus = 0;
+        public List<bool> skinsUnlockStatus = new List<bool>(27);
         
 
         public int GetLevel()

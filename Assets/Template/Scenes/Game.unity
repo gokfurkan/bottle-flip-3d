@@ -1039,6 +1039,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78809a59284e49beb01d482063bb7749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopOptions: {fileID: 11400000, guid: a047487eb5daddf458481daa0fdc80c1, type: 2}
+  pageSwiper: {fileID: 5335897783385409370}
+  skinButton: {fileID: 7792788424665062672, guid: 0cd4e9974a0afbd4890e3c1ae2c31b9a, type: 3}
+  rarityOptions:
+  - rarityHolder: {fileID: 5335897783385409367}
+    skinRarity: 0
+    buttonAmount: 9
+    rarityCost: 300
+  - rarityHolder: {fileID: 5335897783385409368}
+    skinRarity: 1
+    buttonAmount: 9
+    rarityCost: 500
+  - rarityHolder: {fileID: 5335897783385409369}
+    skinRarity: 2
+    buttonAmount: 6
+    rarityCost: 800
+  unlockFeeText: {fileID: 0}
+  exclamationMark: {fileID: 0}
+  shopButtons: []
 --- !u!1 &2077392291
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,6 +3397,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84d421e33899f314eae3114f3f8718c6, type: 3}
+--- !u!224 &5335897783385409367 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5335897783409939290, guid: 84d421e33899f314eae3114f3f8718c6, type: 3}
+  m_PrefabInstance: {fileID: 5335897783385409366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &5335897783385409368 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5335897782648024778, guid: 84d421e33899f314eae3114f3f8718c6, type: 3}
+  m_PrefabInstance: {fileID: 5335897783385409366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &5335897783385409369 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5335897782493638705, guid: 84d421e33899f314eae3114f3f8718c6, type: 3}
+  m_PrefabInstance: {fileID: 5335897783385409366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5335897783385409370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4000333983277739616, guid: 84d421e33899f314eae3114f3f8718c6, type: 3}
+  m_PrefabInstance: {fileID: 5335897783385409366}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bebb985f838c4192ab7d3b92814b5ba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6803227874222069429 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8112615732162148525, guid: 031b6c4a8c23c97428b701a3566d526c, type: 3}
