@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Game.Dev.Scripts.ScriptableSO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ namespace Game.Dev.Scripts.Shop
         public GameObject skinButton;
         
         [Space(10)]
-        public Text costText;
+        public TextMeshProUGUI costText;
         public GameObject exclamationMark;
         
         [Space(10)]
