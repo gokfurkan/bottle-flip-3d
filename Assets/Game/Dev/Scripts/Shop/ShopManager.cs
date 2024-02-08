@@ -13,13 +13,11 @@ namespace Game.Dev.Scripts.Shop
         public GameObject skinButton;
         
         [Space(10)]
-        public List<ShopRarityOptions> rarityOptions;
+        public Text costText;
+        public GameObject exclamationMark;
         
         [Space(10)]
-        public Text unlockFeeText;
-        public GameObject exclamationMark;
-
-        [Space(10)] 
+        public List<ShopRarityOptions> rarityOptions;
         public List<ShopButton> shopButtons;
         
         private void Start()
@@ -39,7 +37,9 @@ namespace Game.Dev.Scripts.Shop
                 for (int j = 0; j < rarityOptions[i].buttonAmount; j++)
                 {
                     var createdSkin = Instantiate(skinButton, rarityOptions[i].rarityHolder);
-                    createdSkin.GetComponent<ShopButton>().buttonOptions.skinRarity = rarityOptions[i].skinRarity;
+                    var createdSkinButton = createdSkin.GetComponent<ShopButton>();
+                    createdSkinButton.buttonOptions.skinRarity = rarityOptions[i].skinRarity;
+                    shopButtons.Add(createdSkinButton);
                 }
             }
 
