@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Game.Dev.Scripts.Shop
+namespace Shop_V1.Scripts
 {
     public class ShopButton : MonoBehaviour
     {

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Dev.Scripts.ScriptableSO;
+using Game.Dev.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Dev.Scripts.Shop
+namespace Shop_V1.Scripts
 {
     public class ShopManager : MonoBehaviour
     {

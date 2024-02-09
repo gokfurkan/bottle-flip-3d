@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using Game.Dev.Scripts.ScriptableSO;
 using Template.Scripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Game.Dev.Scripts.Shop
+namespace Shop_V1.Scripts
 {
     public class PageSwiper : MonoBehaviour , IEndDragHandler
     {

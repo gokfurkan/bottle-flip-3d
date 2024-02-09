@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using DG.Tweening;
-using Game.Dev.Scripts.Shop;
+﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Game.Dev.Scripts.ScriptableSO
+namespace Shop_V1.Scripts
 {
     [CreateAssetMenu(fileName = "ShopOptions", menuName = "ScriptableObjects/ShopOptions")]
     public class ShopOptions : ScriptableObject
