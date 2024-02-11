@@ -25,11 +25,13 @@ namespace Shop_V1.Scripts
         private void OnEnable()
         {
             BusSystem.OnSetMoneys += CallSetExclamationMarkEnabledDelayed;
+            BusSystem.OnChangeShopPanelPage += OnChangeShopPage;
         }
 
         private void OnDisable()
         {
             BusSystem.OnSetMoneys -= CallSetExclamationMarkEnabledDelayed;
+            BusSystem.OnChangeShopPanelPage -= OnChangeShopPage;
         }
 
         private void Awake()
@@ -48,6 +50,72 @@ namespace Shop_V1.Scripts
             InitializeSkinUnlockStatus();
         }
 
+        private void OnChangeShopPage()
+        {
+            SetUnlockCostText();
+            SetItemUnlockStatus();
+        }
+        
+        public void SetSkin(int selectedItem)
+        {
+            SaveManager.instance.saveData.currentSkin = selectedItem;
+            SaveManager.instance.Save();
+
+            SetItemUnlockStatus();
+            SetItemSelectStatus(selectedItem);
+            
+            BusSystem.CallSetPlayerSkin();
+        }
+        
+        private void SetUnlockCostText()
+        {
+            costText.text = rarityOptions[pageSwiper.currentPage - 1].ToString();
+        }
+        
+        private void SetItemUnlockStatus()
+        {
+            for (var i = 0; i < shopButtons.Count; i++)
+            {
+                var buttonOptions = shopButtons[i].buttonOptions;
+                var isSkinUnlocked = SaveManager.instance.saveData.skinsUnlockStatus[i];
+                var buttonClickComponent = shopButtons[i].GetComponent<ButtonClickController>();
+                
+                if (!isSkinUnlocked)
+                {
+                    buttonClickComponent.enabled = false;
+                    buttonOptions.lockIcon.gameObject.SetActive(true);
+                    buttonOptions.skinIcon.gameObject.SetActive(false);
+                }
+                else
+                {
+                    buttonClickComponent.enabled = true;
+                    buttonOptions.lockIcon.gameObject.SetActive(false);
+                    buttonOptions.skinIcon.gameObject.SetActive(true);
+                }
+            }
+        }
+
+        private void SetItemSelectStatus(int selectedItem)
+        {
+            for (int i = 0; i < shopButtons.Count; i++)
+            {
+                var buttonOptions = shopButtons[i].buttonOptions;
+
+                if (selectedItem == i)
+                {
+                    buttonOptions.darkOutline.gameObject.SetActive(false);
+                    buttonOptions.whiteOutline.gameObject.SetActive(true);
+                    buttonOptions.buttonBg.color = rarityOptions[pageSwiper.currentPage - 1].deActiveButtonColor;
+                }
+                else
+                {
+                    buttonOptions.darkOutline.gameObject.SetActive(true);
+                    buttonOptions.whiteOutline.gameObject.SetActive(false);
+                    buttonOptions.buttonBg.color = rarityOptions[pageSwiper.currentPage - 1].activeButtonColor;
+                }
+            }
+        }
+        
         private void InitializeShopButtons()
         {
             // Loop through each rarity option
@@ -187,5 +255,7 @@ namespace Shop_V1.Scripts
         public SkinRarity skinRarity;
         public int buttonAmount;
         public int rarityCost;
+        public Color activeButtonColor;
+        public Color deActiveButtonColor;
     }
 }

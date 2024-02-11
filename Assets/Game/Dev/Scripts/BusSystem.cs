@@ -73,8 +73,5 @@ namespace Game.Dev.Scripts
         
         public static Action OnChangeShopPanelPage;
         public static void CallChangeShopPanelPage() { OnChangeShopPanelPage?.Invoke(); }
-        
-        public static Action OnSetExclamationMarkEnabled;
-        public static void CallSetExclamationMarkEnabled() { OnSetExclamationMarkEnabled?.Invoke(); }
     }
 }

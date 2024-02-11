@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using Game.Dev.Scripts;
 using Template.Scripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,7 +13,7 @@ namespace Shop_V1.Scripts
         public ShopOptions shopOptions;
         public RectTransform levelPagesRect;
         public List<GameObject> pagePoints;
-        private int currentPage = 1;
+        public int currentPage = 1;
 
         private void Start()
         {
@@ -63,6 +64,8 @@ namespace Shop_V1.Scripts
                 .SetEase(shopOptions.pageChangeEase);
             
             pagePoints.ActivateAtIndex(currentPage - 1);
+            
+            BusSystem.CallChangeShopPanelPage();
         }
     }
 }
