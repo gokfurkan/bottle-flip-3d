@@ -7,7 +7,7 @@ namespace Shop_V1.Scripts
     public class ShopOptions : ScriptableObject
     {
         [Header("Shop")] 
-       
+        public float markControlDelay;
         
         [Header("Page Swiper")]
         public int maxPage;

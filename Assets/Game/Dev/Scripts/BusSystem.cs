@@ -12,8 +12,8 @@ namespace Game.Dev.Scripts
         public static Action OnResetMoneys;
         public static void CallResetMoneys() { OnResetMoneys?.Invoke(); }
         
-        public static Action <int,int> OnSetMoneys;
-        public static void CallSetMoneys(int oldAmount,int newAmount) { OnSetMoneys?.Invoke(oldAmount,newAmount); }
+        public static Action OnSetMoneys;
+        public static void CallSetMoneys() { OnSetMoneys?.Invoke(); }
         
         //Camera
 

@@ -40,11 +40,11 @@ namespace Template.Scripts
         {
             DisableAll();
             
-            // Activate(PanelType.Money);
+            Activate(PanelType.Money);
             // Activate(PanelType.Level);
             Activate(PanelType.OpenSettings);
             Activate(PanelType.OpenShop);
-            // Activate(PanelType.Restart);
+            Activate(PanelType.Restart);
             Activate(PanelType.LevelProgress);
         }
 
@@ -58,7 +58,7 @@ namespace Template.Scripts
         {
             DisableAll();
             
-            // Activate(PanelType.Money);
+            Activate(PanelType.Money);
 
             StartCoroutine(ActivateEndPanelDelay(win));
         }

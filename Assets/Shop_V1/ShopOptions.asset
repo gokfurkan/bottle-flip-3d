@@ -12,19 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0a16df811f4596b592353ccd591cf6, type: 3}
   m_Name: ShopOptions
   m_EditorClassIdentifier: 
-  rarityOptions:
-  - rarityHolder: {fileID: 0}
-    skinRarity: 0
-    buttonAmount: 9
-    rarityCost: 300
-  - rarityHolder: {fileID: 0}
-    skinRarity: 1
-    buttonAmount: 9
-    rarityCost: 500
-  - rarityHolder: {fileID: 0}
-    skinRarity: 2
-    buttonAmount: 6
-    rarityCost: 800
+  markControlDelay: 1
   maxPage: 3
   pageStep: -400
   dragThreshHold: 72

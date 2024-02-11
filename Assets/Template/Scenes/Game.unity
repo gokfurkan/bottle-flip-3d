@@ -1858,9 +1858,17 @@ PrefabInstance:
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2077392293}
-    - target: {fileID: 1814874769953381347, guid: 999d2b4b2e940ca42a792e966673d9c0, type: 3}
-      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ActivateShopPanel
+    - target: {fileID: 6759023687771194634, guid: 999d2b4b2e940ca42a792e966673d9c0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6759023687771194634, guid: 999d2b4b2e940ca42a792e966673d9c0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6759023687771194634, guid: 999d2b4b2e940ca42a792e966673d9c0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 999d2b4b2e940ca42a792e966673d9c0, type: 3}

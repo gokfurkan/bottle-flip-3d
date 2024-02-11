@@ -29,9 +29,9 @@ namespace Template.Scripts
                 BusSystem.CallLevelLoad();
             }
             
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.M))
             {
-                AudioManager.instance.Play(AudioType.GameStart);
+                BusSystem.CallAddMoneys(1000);
             }
         }
 #endif

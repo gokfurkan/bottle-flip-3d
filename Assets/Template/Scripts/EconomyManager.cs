@@ -9,6 +9,8 @@ namespace Template.Scripts
     {
         [SerializeField] private TextMeshProUGUI moneyText;
 
+        private int oldMoneyTarget, newMoneyTarget;
+
         private void OnEnable()
         {
             BusSystem.OnAddMoneys += AddMoneys;
@@ -25,7 +27,7 @@ namespace Template.Scripts
 
         private void Start()
         {
-            BusSystem.CallSetMoneys( SaveManager.instance.saveData.GetMoneys(), SaveManager.instance.saveData.GetMoneys());
+            BusSystem.CallSetMoneys();
         }
 
         #region AddMoney
@@ -35,7 +37,13 @@ namespace Template.Scripts
             var oldAmount =  SaveManager.instance.saveData.GetMoneys();
             var newAmount = oldAmount + amount;
 
-            BusSystem.CallSetMoneys(oldAmount,newAmount);
+            oldMoneyTarget = oldAmount;
+            newMoneyTarget = newAmount;
+            
+            SaveManager.instance.saveData.moneys = newAmount;
+            SaveManager.instance.Save();
+
+            BusSystem.CallSetMoneys();
         }
 
         #endregion
@@ -44,28 +52,31 @@ namespace Template.Scripts
 
         private void ResetMoneys()
         {
-            var oldAmount = SaveManager.instance.saveData.GetMoneys();
-            const int newAmount = 0;
+            SaveManager.instance.saveData.moneys = 0;
+            SaveManager.instance.Save();
 
-            BusSystem.CallSetMoneys(oldAmount,newAmount);
+            BusSystem.CallSetMoneys();
         }
 
         #endregion
 
         #region SetMoney
 
-        private void SetMoneyText(int oldAmount, int targetAmount)
+        private void SetMoneyText()
         {
-            SaveManager.instance.saveData.moneys = targetAmount;
-            SaveManager.instance.Save();
+            if (oldMoneyTarget == 0 || newMoneyTarget == 0)
+            {
+                oldMoneyTarget = 0;
+                newMoneyTarget = SaveManager.instance.saveData.GetMoneys();
+            }
             
             if (InitializeManager.instance.settingsData.useMoneyAnimation)
             {
-                AnimateMoneyText(oldAmount, targetAmount);
+                AnimateMoneyText(oldMoneyTarget, newMoneyTarget);
             }
             else
             {
-                moneyText.text = MoneyCalculator.NumberToStringFormatter(targetAmount);
+                moneyText.text = MoneyCalculator.NumberToStringFormatter(newMoneyTarget);
             }
             
             // BusSystem.CallRefreshUpgradeValues();
