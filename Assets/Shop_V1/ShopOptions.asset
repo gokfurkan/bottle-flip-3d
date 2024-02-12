@@ -13,6 +13,22 @@ MonoBehaviour:
   m_Name: ShopOptions
   m_EditorClassIdentifier: 
   markControlDelay: 1
+  rarityOptions:
+  - skinRarity: 0
+    buttonAmount: 9
+    rarityCost: 300
+    activeButtonColor: {r: 1, g: 0.8352941, b: 0.45882353, a: 1}
+    deActiveButtonColor: {r: 1, g: 0.627451, b: 0, a: 1}
+  - skinRarity: 1
+    buttonAmount: 9
+    rarityCost: 700
+    activeButtonColor: {r: 0.46666667, g: 0.84313726, b: 1, a: 1}
+    deActiveButtonColor: {r: 0.07058824, g: 0.42745098, b: 1, a: 1}
+  - skinRarity: 2
+    buttonAmount: 9
+    rarityCost: 1200
+    activeButtonColor: {r: 0.5753287, g: 1, b: 0.07058823, a: 1}
+    deActiveButtonColor: {r: 0.10136038, g: 0.7264151, b: 0, a: 1}
   maxPage: 3
   pageStep: -400
   dragThreshHold: 72

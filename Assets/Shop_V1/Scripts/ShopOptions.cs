@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Shop_V1.Scripts
@@ -8,6 +9,7 @@ namespace Shop_V1.Scripts
     {
         [Header("Shop")] 
         public float markControlDelay;
+        public List<ShopRarityOptions> rarityOptions;
         
         [Header("Page Swiper")]
         public int maxPage;

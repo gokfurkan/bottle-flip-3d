@@ -15,11 +15,11 @@ namespace Shop_V1.Scripts
         public GameObject skinButton;
         
         [Space(10)]
-        public TextMeshProUGUI costText;
         public GameObject exclamationMark;
+        public TextMeshProUGUI costText;
         
         [Space(10)]
-        public List<ShopRarityOptions> rarityOptions;
+        public List<RectTransform> rarityHolders;
         public List<ShopButton> shopButtons;
 
         private void OnEnable()
@@ -46,8 +46,9 @@ namespace Shop_V1.Scripts
 
         private void InitShop()
         {
-            InitializeShopButtons();
             InitializeSkinUnlockStatus();
+            InitializeShopButtons();
+            SetSkin(SaveManager.instance.saveData.currentSkin);
         }
 
         private void OnChangeShopPage()
@@ -69,7 +70,7 @@ namespace Shop_V1.Scripts
         
         private void SetUnlockCostText()
         {
-            costText.text = rarityOptions[pageSwiper.currentPage - 1].ToString();
+            costText.text = shopOptions.rarityOptions[pageSwiper.currentPage - 1].rarityCost.ToString();
         }
         
         private void SetItemUnlockStatus()
@@ -105,13 +106,13 @@ namespace Shop_V1.Scripts
                 {
                     buttonOptions.darkOutline.gameObject.SetActive(false);
                     buttonOptions.whiteOutline.gameObject.SetActive(true);
-                    buttonOptions.buttonBg.color = rarityOptions[pageSwiper.currentPage - 1].deActiveButtonColor;
+                    buttonOptions.buttonBg.color = shopOptions.rarityOptions[pageSwiper.currentPage - 1].activeButtonColor;
                 }
                 else
                 {
                     buttonOptions.darkOutline.gameObject.SetActive(true);
                     buttonOptions.whiteOutline.gameObject.SetActive(false);
-                    buttonOptions.buttonBg.color = rarityOptions[pageSwiper.currentPage - 1].activeButtonColor;
+                    buttonOptions.buttonBg.color = shopOptions.rarityOptions[pageSwiper.currentPage - 1].deActiveButtonColor;
                 }
             }
         }
@@ -119,15 +120,15 @@ namespace Shop_V1.Scripts
         private void InitializeShopButtons()
         {
             // Loop through each rarity option
-            for (int rarityIndex = 0; rarityIndex < rarityOptions.Count; rarityIndex++)
+            for (int rarityIndex = 0; rarityIndex < shopOptions.rarityOptions.Count; rarityIndex++)
             {
                 // Loop through each button amount
-                for (int buttonIndex = 0; buttonIndex < rarityOptions[rarityIndex].buttonAmount; buttonIndex++)
+                for (int buttonIndex = 0; buttonIndex < shopOptions.rarityOptions[rarityIndex].buttonAmount; buttonIndex++)
                 {
                     // Instantiate a new button and add it
-                    GameObject newSkinButtonObject = Instantiate(skinButton, rarityOptions[rarityIndex].rarityHolder);
+                    GameObject newSkinButtonObject = Instantiate(skinButton, rarityHolders[rarityIndex]);
                     ShopButton newSkinButtonComponent = newSkinButtonObject.GetComponent<ShopButton>();
-                    newSkinButtonComponent.buttonOptions.skinRarity = rarityOptions[rarityIndex].skinRarity;
+                    newSkinButtonComponent.buttonOptions.skinRarity = shopOptions.rarityOptions[rarityIndex].skinRarity;
                     shopButtons.Add(newSkinButtonComponent);
                 }
             }
@@ -145,18 +146,18 @@ namespace Shop_V1.Scripts
         {
             int money = SaveManager.instance.saveData.GetMoneys();
 
-            int[] pageEndAmounts = new int[rarityOptions.Count];
+            int[] pageEndAmounts = new int[shopOptions.rarityOptions.Count];
 
             // Calculate the end amounts for each rarity option
-            for (int i = 0; i < rarityOptions.Count; i++)
+            for (int i = 0; i < shopOptions.rarityOptions.Count; i++)
             {
                 if (i == 0)
                 {
-                    pageEndAmounts[i] = rarityOptions[i].buttonAmount;
+                    pageEndAmounts[i] = shopOptions.rarityOptions[i].buttonAmount;
                 }
                 else
                 {
-                    pageEndAmounts[i] = pageEndAmounts[i - 1] + rarityOptions[i].buttonAmount;
+                    pageEndAmounts[i] = pageEndAmounts[i - 1] + shopOptions.rarityOptions[i].buttonAmount;
                 }
             }
 
@@ -170,12 +171,12 @@ namespace Shop_V1.Scripts
                 pageFullBuyStatuses[i] = CheckPageFullBuy(SaveManager.instance.saveData.skinsUnlockStatus, startAmount, endAmount);
             }
 
-            int[] rarityCosts = new int[rarityOptions.Count];
+            int[] rarityCosts = new int[shopOptions.rarityOptions.Count];
 
             // Get the cost of each rarity option
-            for (int i = 0; i < rarityOptions.Count; i++)
+            for (int i = 0; i < shopOptions.rarityOptions.Count; i++)
             {
-                rarityCosts[i] = rarityOptions[i].rarityCost;
+                rarityCosts[i] = shopOptions.rarityOptions[i].rarityCost;
             }
 
             // Determine if the exclamation mark should be shown
@@ -251,7 +252,6 @@ namespace Shop_V1.Scripts
     [Serializable]
     public class ShopRarityOptions
     {
-        public RectTransform rarityHolder;
         public SkinRarity skinRarity;
         public int buttonAmount;
         public int rarityCost;
