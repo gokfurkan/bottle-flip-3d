@@ -12,8 +12,10 @@ namespace Shop_V1.Scripts
     {
         public ShopOptions shopOptions;
         public RectTransform levelPagesRect;
-        public List<GameObject> pagePoints;
+        public GameObject previousPageChanger;
+        public GameObject nextPageChanger;
         public int currentPage = 1;
+        public List<GameObject> pagePoints;
 
         private void Start()
         {
@@ -64,8 +66,26 @@ namespace Shop_V1.Scripts
                 .SetEase(shopOptions.pageChangeEase);
             
             pagePoints.ActivateAtIndex(currentPage - 1);
+
+            SetPageChangerEnabled();
             
             BusSystem.CallChangeShopPanelPage();
+        }
+
+        private void SetPageChangerEnabled()
+        {
+            previousPageChanger.SetActive(true);
+            nextPageChanger.SetActive(true);
+            
+            switch (currentPage)
+            {
+                case 1:
+                    previousPageChanger.SetActive(false);
+                    break;
+                case 3:
+                    nextPageChanger.SetActive(false);
+                    break;
+            }
         }
     }
 }
