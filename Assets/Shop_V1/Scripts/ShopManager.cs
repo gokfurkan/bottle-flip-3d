@@ -191,6 +191,12 @@ namespace Shop_V1.Scripts
             unlockButtonClick.enabled = HasMoney();
             activeUnlockButton.gameObject.SetActive(HasMoney());
             deActiveUnlockButton.gameObject.SetActive(!HasMoney());
+            
+            var buttonAmount = shopOptions.rarityOptions[pageSwiper.currentPage - 1].buttonAmount;
+            var startIndex = (pageSwiper.currentPage - 1) * buttonAmount;
+            var endIndex = pageSwiper.currentPage * buttonAmount;
+            var lockedItemIndices = FindLockedItems(startIndex, endIndex);
+            unlockButtonClick.gameObject.SetActive(lockedItemIndices.Count != 0);
         }
         
         private void CallSetExclamationMarkEnabledDelayed()
