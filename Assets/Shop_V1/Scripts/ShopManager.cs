@@ -18,9 +18,11 @@ namespace Shop_V1.Scripts
         [Space(10)]
         public GameObject exclamationMark;
         public TextMeshProUGUI costText;
+        public Image selectedSkin;
         
         [Space(10)]
         public List<RectTransform> rarityHolders;
+        public List<Sprite> buttonIcons;
         public List<ShopButton> shopButtons;
 
         private int totalCreatedButton;
@@ -125,6 +127,8 @@ namespace Shop_V1.Scripts
             {
                 shopButtons[i].ChangeButtonSelectStatus(selectedItem);
             }
+
+            selectedSkin.sprite = buttonIcons[0];
         }
         
         private void InitializeShopButtons()
@@ -135,7 +139,8 @@ namespace Shop_V1.Scripts
                 {
                     GameObject newSkinButtonObject = Instantiate(skinButton, rarityHolders[rarityIndex]);
                     ShopButton newSkinButtonComponent = newSkinButtonObject.GetComponent<ShopButton>();
-                    
+
+                    newSkinButtonComponent.buttonOptions.skinIcon.sprite = buttonIcons[0];
                     newSkinButtonComponent.buttonOptions.buttonIndex = totalCreatedButton;
                     newSkinButtonComponent.buttonOptions.skinRarity = shopOptions.rarityOptions[rarityIndex].skinRarity;
                     

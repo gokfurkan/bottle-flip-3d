@@ -625,6 +625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopOptions: {fileID: 11400000, guid: a047487eb5daddf458481daa0fdc80c1, type: 2}
+  buttonClickController: {fileID: 7792788424665062670}
   buttonOptions:
     buttonIndex: 0
     skinRarity: 0
@@ -634,7 +635,6 @@ MonoBehaviour:
     darkOutline: {fileID: 8196076107635007626}
     whiteOutline: {fileID: 4536125035147470864}
     yellowOutline: {fileID: 7936894760606070296}
-  buttonClickController: {fileID: 7792788424665062670}
 --- !u!1 &8309300317120740595
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +794,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3f91331724a9da84197e9b6d94f0483c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9f340c8df79c8d40b2f4c7dea274a7e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
