@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 namespace Game.Dev.Scripts.Player
 {
@@ -6,11 +7,13 @@ namespace Game.Dev.Scripts.Player
     {
         private void OnEnable()
         {
+            BusSystem.OnPlayerMove += PlayerMove;
             BusSystem.OnPlayerDead += PlayerDead;
         }
 
         private void OnDisable()
         {
+            BusSystem.OnPlayerMove -= PlayerMove;
             BusSystem.OnPlayerDead -= PlayerDead;
         }
 
@@ -22,6 +25,11 @@ namespace Game.Dev.Scripts.Player
         private void PlayerDead()
         {
             BusSystem.CallLevelEnd(false);
+        }
+
+        private void PlayerMove(Transform movePos , float duration = 0)
+        {
+            transform.DOMove(movePos.position, duration);
         }
     }
 }

@@ -102,3 +102,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23cb30e181d4d144098d23154f4c9f78, type: 3}
   m_PrefabInstance: {fileID: 3857145971101800379}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5665899885300153315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8873784780960296024, guid: 23cb30e181d4d144098d23154f4c9f78, type: 3}
+  m_PrefabInstance: {fileID: 3857145971101800379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &8015963686706452455
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665899885300153315}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3743888696504308365, guid: 23cb30e181d4d144098d23154f4c9f78, type: 3}
