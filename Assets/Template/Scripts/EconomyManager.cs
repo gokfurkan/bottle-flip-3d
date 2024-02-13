@@ -8,7 +8,6 @@ namespace Template.Scripts
     public class EconomyManager : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI moneyText;
-
         private int oldMoneyTarget, newMoneyTarget;
 
         private void OnEnable()

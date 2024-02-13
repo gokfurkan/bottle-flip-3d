@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DG.Tweening;
 using Game.Dev.Scripts;
 using Template.Scripts;
 using TMPro;
@@ -38,14 +37,14 @@ namespace Shop_V1.Scripts
         {
             BusSystem.OnSetMoneys += CallSetExclamationMarkEnabledDelayed;
             BusSystem.OnSetMoneys += SetUnlockButtonActivate;
-            BusSystem.OnChangeShopPanelPage += OnChangeShopPage;
+            ShopAction.OnChangeShopPanelPage += OnChangeShopPage;
         }
 
         private void OnDisable()
         {
             BusSystem.OnSetMoneys -= CallSetExclamationMarkEnabledDelayed;
             BusSystem.OnSetMoneys -= SetUnlockButtonActivate;
-            BusSystem.OnChangeShopPanelPage -= OnChangeShopPage;
+            ShopAction.OnChangeShopPanelPage -= OnChangeShopPage;
         }
 
         protected override void Initialize()
@@ -335,5 +334,11 @@ namespace Shop_V1.Scripts
         public int rarityCost;
         public Color activeButtonColor;
         public Color deActiveButtonColor;
+    }
+
+    public static class ShopAction
+    {
+        public static Action OnChangeShopPanelPage;
+        public static void CallChangeShopPanelPage() { OnChangeShopPanelPage?.Invoke(); }
     }
 }
