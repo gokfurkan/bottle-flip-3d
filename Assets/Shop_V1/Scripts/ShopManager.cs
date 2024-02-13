@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Game.Dev.Scripts;
 using Template.Scripts;
 using TMPro;
@@ -17,8 +18,13 @@ namespace Shop_V1.Scripts
         
         [Space(10)]
         public GameObject exclamationMark;
-        public TextMeshProUGUI costText;
         public Image selectedSkin;
+        public List<TextMeshProUGUI> costTexts;
+
+        [Space(10)] 
+        public ButtonClickController unlockButtonClick;
+        public GameObject activeUnlockButton;
+        public GameObject deActiveUnlockButton;
         
         [Space(10)]
         public List<RectTransform> rarityHolders;
@@ -31,12 +37,14 @@ namespace Shop_V1.Scripts
         private void OnEnable()
         {
             BusSystem.OnSetMoneys += CallSetExclamationMarkEnabledDelayed;
+            BusSystem.OnSetMoneys += SetUnlockButtonActivate;
             BusSystem.OnChangeShopPanelPage += OnChangeShopPage;
         }
 
         private void OnDisable()
         {
             BusSystem.OnSetMoneys -= CallSetExclamationMarkEnabledDelayed;
+            BusSystem.OnSetMoneys -= SetUnlockButtonActivate;
             BusSystem.OnChangeShopPanelPage -= OnChangeShopPage;
         }
 
@@ -103,13 +111,18 @@ namespace Shop_V1.Scripts
         
         private void OnChangeShopPage()
         {
+            SetUnlockButtonActivate();
             SetUnlockCostText();
             SetItemUnlockStatus();
         }
         
         private void SetUnlockCostText()
         {
-            costText.text = shopOptions.rarityOptions[pageSwiper.currentPage - 1].rarityCost.ToString();
+            var currentCost = shopOptions.rarityOptions[pageSwiper.currentPage - 1].rarityCost;
+            for (var i = 0; i < costTexts.Count; i++)
+            {
+                costTexts[i].text = currentCost.ToString();
+            }
         }
         
         private void SetItemUnlockStatus()
@@ -165,6 +178,19 @@ namespace Shop_V1.Scripts
                 
                 SaveManager.instance.Save();
             }
+        }
+
+        private void SetUnlockButtonActivate()
+        {
+            bool HasMoney()
+            {
+                int money = SaveManager.instance.saveData.GetMoneys();
+                return money > GetCurrentRarityCost();
+            }
+
+            unlockButtonClick.enabled = HasMoney();
+            activeUnlockButton.gameObject.SetActive(HasMoney());
+            deActiveUnlockButton.gameObject.SetActive(!HasMoney());
         }
         
         private void CallSetExclamationMarkEnabledDelayed()
@@ -251,6 +277,11 @@ namespace Shop_V1.Scripts
             }
 
             return rarityCosts;
+        }
+
+        private int GetCurrentRarityCost()
+        {
+            return GetRarityCosts()[pageSwiper.currentPage - 1];
         }
         
         private bool ShouldShowExclamationMark()
