@@ -19,8 +19,7 @@ namespace Shop_V1.Scripts
 
         private void Start()
         {
-            currentPage = 1;
-            MovePage();
+            SetPageForSelectedSkin();
         }
         
         public void OnEndDrag(PointerEventData eventData)
@@ -86,6 +85,41 @@ namespace Shop_V1.Scripts
                     nextPageChanger.SetActive(false);
                     break;
             }
+        }
+        
+        private void SetPageForSelectedSkin()
+        {
+            var currentSkin = SaveManager.instance.saveData.currentSkin;
+            
+            int[] pageEndAmounts = new int[shopOptions.rarityOptions.Count];
+
+            // Calculate the end amounts for each rarity option
+            for (int i = 0; i < shopOptions.rarityOptions.Count; i++)
+            {
+                if (i == 0)
+                {
+                    pageEndAmounts[i] = shopOptions.rarityOptions[i].buttonAmount;
+                }
+                else
+                {
+                    pageEndAmounts[i] = pageEndAmounts[i - 1] + shopOptions.rarityOptions[i].buttonAmount;
+                }
+            }
+            
+            if (currentSkin < pageEndAmounts[0])
+            {
+                currentPage = 1;
+            }
+            else if (currentSkin >= pageEndAmounts[0] && currentSkin < pageEndAmounts[1])
+            {
+                currentPage = 2;
+            }
+            else
+            {
+                currentPage = 3;
+            }
+
+            MovePage();
         }
     }
 }

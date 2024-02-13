@@ -12,8 +12,7 @@ namespace Template.Scripts
             base.Initialize();
 
             SetFrameRate();
-
-            AddOperation(typeof(SaveManager));
+            
             AddOperation(typeof(Development));
             AddOperation(typeof(HapticManager));
         }

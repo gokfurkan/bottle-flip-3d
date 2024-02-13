@@ -5,10 +5,11 @@ using Template.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Shop_V1.Scripts
 {
-    public class ShopManager : MonoBehaviour
+    public class ShopManager : Singleton<ShopManager>
     {
         public ShopOptions shopOptions;
         public PageSwiper pageSwiper;
@@ -22,6 +23,9 @@ namespace Shop_V1.Scripts
         public List<RectTransform> rarityHolders;
         public List<ShopButton> shopButtons;
 
+        private int totalCreatedButton;
+        
+
         private void OnEnable()
         {
             BusSystem.OnSetMoneys += CallSetExclamationMarkEnabledDelayed;
@@ -34,38 +38,71 @@ namespace Shop_V1.Scripts
             BusSystem.OnChangeShopPanelPage -= OnChangeShopPage;
         }
 
-        private void Awake()
+        protected override void Initialize()
         {
+            base.Initialize();
+            
             exclamationMark.SetActive(false);
-        }
-
-        private void Start()
-        {
             InitShop();
         }
 
         private void InitShop()
         {
-            InitializeSkinUnlockStatus();
             InitializeShopButtons();
-            SetSkin(SaveManager.instance.saveData.currentSkin);
+            InitializeSkinUnlockStatus();
+            InitSetSkin(SaveManager.instance.saveData.currentSkin);
         }
 
-        private void OnChangeShopPage()
+        private void InitSetSkin(int selectedItem)
         {
-            SetUnlockCostText();
-            SetItemUnlockStatus();
-        }
-        
-        public void SetSkin(int selectedItem)
-        {
-            SaveManager.instance.saveData.currentSkin = selectedItem;
-            SaveManager.instance.Save();
-
             SetItemUnlockStatus();
             SetItemSelectStatus(selectedItem);
             
             BusSystem.CallSetPlayerSkin();
+        }
+        
+        public void OnSetSkin(int buttonIndex)
+        {
+            SaveManager.instance.saveData.currentSkin = buttonIndex;
+            SaveManager.instance.Save();
+
+            SetItemUnlockStatus();
+            SetItemSelectStatus(buttonIndex);
+            
+            BusSystem.CallSetPlayerSkin();
+        }
+        
+        public void UnlockRandomSkin()
+        {
+            var currentRarity = shopOptions.rarityOptions[pageSwiper.currentPage - 1];
+            var currentRarityCost = currentRarity.rarityCost;
+            var buttonAmount = currentRarity.buttonAmount;
+
+            if (SaveManager.instance.saveData.GetMoneys() < currentRarityCost) return;
+
+            var startIndex = (pageSwiper.currentPage - 1) * buttonAmount;
+            var endIndex = pageSwiper.currentPage * buttonAmount;
+
+            var lockedItemIndices = FindLockedItems(startIndex, endIndex);
+
+            if (lockedItemIndices.Count == 0)
+            {
+                Debug.Log("All items are already unlocked.");   
+                return;
+            }
+
+            var randomLockedIndex = lockedItemIndices[Random.Range(0, lockedItemIndices.Count)];
+            SaveManager.instance.saveData.skinsUnlockStatus[randomLockedIndex] = true;
+            SaveManager.instance.Save();
+
+            SetItemUnlockStatus();
+            BusSystem.CallAddMoneys(-currentRarityCost);
+        }
+        
+        private void OnChangeShopPage()
+        {
+            SetUnlockCostText();
+            SetItemUnlockStatus();
         }
         
         private void SetUnlockCostText()
@@ -77,22 +114,8 @@ namespace Shop_V1.Scripts
         {
             for (var i = 0; i < shopButtons.Count; i++)
             {
-                var buttonOptions = shopButtons[i].buttonOptions;
                 var isSkinUnlocked = SaveManager.instance.saveData.skinsUnlockStatus[i];
-                var buttonClickComponent = shopButtons[i].GetComponent<ButtonClickController>();
-                
-                if (!isSkinUnlocked)
-                {
-                    buttonClickComponent.enabled = false;
-                    buttonOptions.lockIcon.gameObject.SetActive(true);
-                    buttonOptions.skinIcon.gameObject.SetActive(false);
-                }
-                else
-                {
-                    buttonClickComponent.enabled = true;
-                    buttonOptions.lockIcon.gameObject.SetActive(false);
-                    buttonOptions.skinIcon.gameObject.SetActive(true);
-                }
+                shopButtons[i].ChangeButtonLockStatus(!isSkinUnlocked);
             }
         }
 
@@ -100,20 +123,7 @@ namespace Shop_V1.Scripts
         {
             for (int i = 0; i < shopButtons.Count; i++)
             {
-                var buttonOptions = shopButtons[i].buttonOptions;
-
-                if (selectedItem == i)
-                {
-                    buttonOptions.darkOutline.gameObject.SetActive(false);
-                    buttonOptions.whiteOutline.gameObject.SetActive(true);
-                    buttonOptions.buttonBg.color = shopOptions.rarityOptions[pageSwiper.currentPage - 1].activeButtonColor;
-                }
-                else
-                {
-                    buttonOptions.darkOutline.gameObject.SetActive(true);
-                    buttonOptions.whiteOutline.gameObject.SetActive(false);
-                    buttonOptions.buttonBg.color = shopOptions.rarityOptions[pageSwiper.currentPage - 1].deActiveButtonColor;
-                }
+                shopButtons[i].ChangeButtonSelectStatus(selectedItem);
             }
         }
         
@@ -128,87 +138,17 @@ namespace Shop_V1.Scripts
                     // Instantiate a new button and add it
                     GameObject newSkinButtonObject = Instantiate(skinButton, rarityHolders[rarityIndex]);
                     ShopButton newSkinButtonComponent = newSkinButtonObject.GetComponent<ShopButton>();
+                    
+                    newSkinButtonComponent.buttonOptions.buttonIndex = totalCreatedButton;
                     newSkinButtonComponent.buttonOptions.skinRarity = shopOptions.rarityOptions[rarityIndex].skinRarity;
+                    
                     shopButtons.Add(newSkinButtonComponent);
+                    totalCreatedButton++;
                 }
             }
 
             // A message indicating all shop buttons have been created could be shown when applicable
             // Debug.Log("All shop buttons created");
-        }
-        
-        private void CallSetExclamationMarkEnabledDelayed()
-        {
-            Invoke(nameof(SetExclamationMarkEnabled), shopOptions.markControlDelay);
-        }
-        
-        private void SetExclamationMarkEnabled()
-        {
-            int money = SaveManager.instance.saveData.GetMoneys();
-
-            int[] pageEndAmounts = new int[shopOptions.rarityOptions.Count];
-
-            // Calculate the end amounts for each rarity option
-            for (int i = 0; i < shopOptions.rarityOptions.Count; i++)
-            {
-                if (i == 0)
-                {
-                    pageEndAmounts[i] = shopOptions.rarityOptions[i].buttonAmount;
-                }
-                else
-                {
-                    pageEndAmounts[i] = pageEndAmounts[i - 1] + shopOptions.rarityOptions[i].buttonAmount;
-                }
-            }
-
-            bool[] pageFullBuyStatuses = new bool[pageEndAmounts.Length];
-
-            // Check if each page is fully bought
-            for (int i = 0; i < pageEndAmounts.Length; i++)
-            {
-                int startAmount = (i == 0) ? 0 : pageEndAmounts[i - 1];
-                int endAmount = pageEndAmounts[i];
-                pageFullBuyStatuses[i] = CheckPageFullBuy(SaveManager.instance.saveData.skinsUnlockStatus, startAmount, endAmount);
-            }
-
-            int[] rarityCosts = new int[shopOptions.rarityOptions.Count];
-
-            // Get the cost of each rarity option
-            for (int i = 0; i < shopOptions.rarityOptions.Count; i++)
-            {
-                rarityCosts[i] = shopOptions.rarityOptions[i].rarityCost;
-            }
-
-            // Determine if the exclamation mark should be shown
-            bool shouldShowExclamationMark = ShouldShowExclamationMark();
-            exclamationMark.SetActive(shouldShowExclamationMark);
-
-            // Function to check if the exclamation mark should be shown
-            bool ShouldShowExclamationMark()
-            {
-                for (int i = 0; i < rarityCosts.Length; i++)
-                {
-                    if (!pageFullBuyStatuses[i] && money >= rarityCosts[i])
-                    {
-                        return true;
-                    }
-                }
-
-                return false;
-            }
-
-            // Function to check if a page is fully bought
-            bool CheckPageFullBuy(IReadOnlyList<bool> skinsUnlockStatus, int startIndex, int endIndex)
-            {
-                for (int i = startIndex; i < endIndex; i++)
-                {
-                    if (!skinsUnlockStatus[i])
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
         }
         
         private void InitializeSkinUnlockStatus()
@@ -231,11 +171,120 @@ namespace Shop_V1.Scripts
                 SaveManager.instance.Save();
             }
         }
+        
+        private void CallSetExclamationMarkEnabledDelayed()
+        {
+            Invoke(nameof(SetExclamationMarkEnabled), shopOptions.markControlDelay);
+        }
+        
+        private void SetExclamationMarkEnabled()
+        {
+            // Check if the exclamation mark should be shown
+            bool shouldShowExclamationMark = ShouldShowExclamationMark();
+            exclamationMark.SetActive(shouldShowExclamationMark);
+        }
+        
+        private List<int> FindLockedItems(int startIndex, int endIndex)
+        {
+            var lockedItems = new List<int>();
+
+            for (var i = startIndex; i < endIndex; i++)
+            {
+                if (!SaveManager.instance.saveData.skinsUnlockStatus[i])
+                {
+                    lockedItems.Add(i);
+                }
+            }
+
+            return lockedItems;
+        }
+
+        private int[] GetPageEndAmounts()
+        {
+            int[] pageEndAmounts = new int[shopOptions.rarityOptions.Count];
+
+            // Calculate the end amounts for each rarity option
+            for (int i = 0; i < shopOptions.rarityOptions.Count; i++)
+            {
+                if (i == 0)
+                {
+                    pageEndAmounts[i] = shopOptions.rarityOptions[i].buttonAmount;
+                }
+                else
+                {
+                    pageEndAmounts[i] = pageEndAmounts[i - 1] + shopOptions.rarityOptions[i].buttonAmount;
+                }
+            }
+
+            return pageEndAmounts;
+        }
+
+        private bool[] GetPageFullBuyStatus()
+        {
+            int[] pageEndAmounts = GetPageEndAmounts();
+            
+            bool[] pageFullBuyStatuses = new bool[pageEndAmounts.Length];
+
+            // Check if each page is fully bought
+            for (int i = 0; i < pageEndAmounts.Length; i++)
+            {
+                int startAmount = (i == 0) ? 0 : pageEndAmounts[i - 1];
+                int endAmount = pageEndAmounts[i];
+                pageFullBuyStatuses[i] = CheckPageFullBuy(SaveManager.instance.saveData.skinsUnlockStatus, startAmount, endAmount);
+            }
+
+            return pageFullBuyStatuses;
+        }
+
+        private bool CheckPageFullBuy(IReadOnlyList<bool> skinsUnlockStatus, int startIndex, int endIndex)
+        {
+            for (int i = startIndex; i < endIndex; i++)
+            {
+                if (!skinsUnlockStatus[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private int[] GetRarityCosts()
+        {
+            int[] rarityCosts = new int[shopOptions.rarityOptions.Count];
+
+            // Get the cost of each rarity option
+            for (int i = 0; i < shopOptions.rarityOptions.Count; i++)
+            {
+                rarityCosts[i] = shopOptions.rarityOptions[i].rarityCost;
+            }
+
+            return rarityCosts;
+        }
+        
+        private bool ShouldShowExclamationMark()
+        {
+            int money = SaveManager.instance.saveData.GetMoneys();
+            
+            int[] rarityCosts = GetRarityCosts();
+            
+            bool[] pageFullBuyStatuses = GetPageFullBuyStatus();
+                
+            for (int i = 0; i < rarityCosts.Length; i++)
+            {
+                if (!pageFullBuyStatuses[i] && money >= rarityCosts[i])
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
     
     [Serializable]
     public class ShopButtonOptions
     {
+        public int buttonIndex;
         public SkinRarity skinRarity;
         
         [Space(10)] 

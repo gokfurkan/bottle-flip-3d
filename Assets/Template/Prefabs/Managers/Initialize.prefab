@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8599145555457318097}
   - component: {fileID: 8599145555457318096}
+  - component: {fileID: 1476623172320384510}
   m_Layer: 0
   m_Name: Initialize
   m_TagString: Untagged
@@ -45,3 +46,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsData: {fileID: 11400000, guid: a6ccb35c73a46b147bf2ad368b965a1a, type: 2}
+--- !u!114 &1476623172320384510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8599145555457318110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6518878c66934fc9b191cb6d9a98dd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveData:
+    level: 0
+    moneys: 0
+    sound: 0
+    haptic: 0
+    currentSkin: 0
+    firstSetUnlockStatus: 0
+    skinsUnlockStatus: 
