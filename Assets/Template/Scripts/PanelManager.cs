@@ -52,7 +52,7 @@ namespace Template.Scripts
 
         private void ActivateGamePanel()
         {
-            DisableAll();
+            Activate(PanelType.OpenShop , false);
             Activate(PanelType.LevelProgress);
         }
 
