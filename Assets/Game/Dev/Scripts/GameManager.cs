@@ -46,15 +46,32 @@ namespace Game.Dev.Scripts
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (EventSystem.current.IsPointerOverGameObject()) return;
-                
-                if (!isLevelPlaying)
+                if (Input.touchCount > 0)
                 {
-                    OnLevelStart();
-                    BusSystem.CallLevelStart();
+                    Touch touch = Input.GetTouch(0);
+                    if (touch.phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+                    {
+                        HandleInput();
+                    }
+                }
+                else if (Input.GetMouseButtonDown(0))
+                {
+                    if (!EventSystem.current.IsPointerOverGameObject())
+                    {
+                        HandleInput();
+                    }
                 }
 
-                BusSystem.CallMouseClickDown();
+                void HandleInput()
+                {
+                    if (!isLevelPlaying)
+                    {
+                        OnLevelStart();
+                        BusSystem.CallLevelStart();
+                    }
+    
+                    BusSystem.CallMouseClickDown();
+                }
             }
 
             if (Input.GetMouseButton(0))
