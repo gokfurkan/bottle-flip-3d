@@ -23,13 +23,7 @@ MonoBehaviour:
   - stageAmount: 1
     stageDuration: 0.5
     nextStageDelay: 1
-  targetFPS: -1
-  defaultSave:
-    level: 0
-    moneys: 0
-    sound: 0
-    haptic: 1
-    currentSkin: 0
+  targetFPS: 60
   winPanelDelay: 0.25
   losePanelDelay: 1.25
   levelText: LEVEL
