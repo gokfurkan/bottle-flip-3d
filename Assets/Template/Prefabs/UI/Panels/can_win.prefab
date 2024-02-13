@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 733116622556137923}
   - component: {fileID: 733116622556137933}
   - component: {fileID: 733116622556137922}
+  - component: {fileID: 4128792301468195150}
   m_Layer: 5
   m_Name: txt_income
   m_TagString: Untagged
@@ -135,6 +136,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4128792301468195150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733116622556137920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3254f49f6db46ceb505560f04bdf1aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOptions: {fileID: 11400000, guid: 8fadb2f299c981247a91caffd798f043, type: 2}
+  incomeType: 0
+  incomeText: {fileID: 733116622556137922}
 --- !u!1 &3423404398590471239
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +573,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d6cf061d12ac44b37b01bc246fe5988b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab01bdf0f16894b4ba423f68aae1e72d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -750,7 +766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3423404399246704509
 RectTransform:
   m_ObjectHideFlags: 0

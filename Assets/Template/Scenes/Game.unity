@@ -671,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d177230ceeb48c8aa36008cefa74635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOptions: {fileID: 11400000, guid: 8fadb2f299c981247a91caffd798f043, type: 2}
 --- !u!4 &2102255913 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1813177375266335815, guid: 609d739aeeb33e048ade5dbc772dd60c, type: 3}
@@ -855,6 +856,10 @@ PrefabInstance:
     - target: {fileID: 3423404399246704508, guid: 201912f3cdf108d4eb8451609970bfce, type: 3}
       propertyPath: m_Name
       value: can_win
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423404399246704508, guid: 201912f3cdf108d4eb8451609970bfce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3423404399246704509, guid: 201912f3cdf108d4eb8451609970bfce, type: 3}
       propertyPath: m_Pivot.x
@@ -1972,6 +1977,10 @@ PrefabInstance:
     - target: {fileID: 3961772868827209329, guid: ea6391bf6354eae44ae657dffe49945b, type: 3}
       propertyPath: m_Name
       value: can_lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961772868827209329, guid: ea6391bf6354eae44ae657dffe49945b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8920003271321828799, guid: ea6391bf6354eae44ae657dffe49945b, type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Game.Dev.Scripts;
+using Game.Dev.Scripts.ScriptableSO;
 using UnityEngine;
 
 namespace Template.Scripts
 {
     public class PanelManager : Singleton<PanelManager>
     {
+        public GameOptions gameOptions;
         private List<PanelTypeHolder> allPanels = new List<PanelTypeHolder>();
 
         protected override void Initialize()
@@ -70,12 +72,16 @@ namespace Template.Scripts
                 yield return new WaitForSeconds(InitializeManager.instance.settingsData.winPanelDelay);
                 
                 Activate(PanelType.Win);
+                
+                BusSystem.CallAddMoneys(gameOptions.winIncome);
             }
             else
             {
                 yield return new WaitForSeconds(InitializeManager.instance.settingsData.losePanelDelay);
                 
                 Activate(PanelType.Lose);
+                
+                BusSystem.CallAddMoneys(gameOptions.loseIncome);
             }
         }
 

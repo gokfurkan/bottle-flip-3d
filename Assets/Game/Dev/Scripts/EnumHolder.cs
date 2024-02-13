@@ -28,6 +28,12 @@
         LevelFailed,
     }
 
+    public enum EndIncomeType
+    {
+        Win,
+        Lose,
+    }
+
     public enum CameraType
     {
         Menu,
