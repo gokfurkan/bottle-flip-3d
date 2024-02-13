@@ -40,7 +40,7 @@ namespace Game.Dev.Scripts
         
         private void SetCurrentDistance()
         {
-            if (!GameManager.Instance.isLevelPlaying) return;
+            if (!GameManager.instance.isLevelPlaying) return;
             
             float currentDistanceX = Mathf.Abs(playerPos.position.x - finishPos.position.x);
             float progressPercentageX = 1 - (currentDistanceX / totalDistanceX);

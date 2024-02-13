@@ -19,7 +19,7 @@ namespace Shop_V1.Scripts
 
         private void SetInit()
         {
-            ShopManager.Instance.OnSetSkin(buttonOptions.buttonIndex);
+            ShopManager.instance.OnSetSkin(buttonOptions.buttonIndex);
         }
 
         public void ChangeButtonLockStatus(bool lockStatus)

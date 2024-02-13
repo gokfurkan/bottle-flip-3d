@@ -9,6 +9,8 @@ namespace Template.Scripts
 
         protected override void Initialize()
         {
+            base.Initialize();
+            
             if (poolObjects == null || poolObjects.Length == 0)
             {
                 Debug.LogWarning("PoolObjects array is null or empty. Please assign valid objects.");

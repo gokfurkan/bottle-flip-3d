@@ -7,7 +7,7 @@ namespace Game.Dev.Scripts.Player
     {
         private void OnCollisionEnter(Collision collision)
         {
-            if (GameManager.Instance.isLevelEnd) return;
+            if (GameManager.instance.isLevelEnd) return;
             
             var interactable = collision.gameObject.GetComponent<IInteractable>();
             if (interactable != null)

@@ -45,7 +45,7 @@ namespace Game.Dev.Scripts.Player
         
         private void JumpPlayer()
         {
-            if (GameManager.Instance.isLevelEnd) return;
+            if (GameManager.instance.isLevelEnd) return;
             
             if (remainingJump > 0)
             {

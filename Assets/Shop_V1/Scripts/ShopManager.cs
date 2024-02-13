@@ -129,13 +129,10 @@ namespace Shop_V1.Scripts
         
         private void InitializeShopButtons()
         {
-            // Loop through each rarity option
             for (int rarityIndex = 0; rarityIndex < shopOptions.rarityOptions.Count; rarityIndex++)
             {
-                // Loop through each button amount
                 for (int buttonIndex = 0; buttonIndex < shopOptions.rarityOptions[rarityIndex].buttonAmount; buttonIndex++)
                 {
-                    // Instantiate a new button and add it
                     GameObject newSkinButtonObject = Instantiate(skinButton, rarityHolders[rarityIndex]);
                     ShopButton newSkinButtonComponent = newSkinButtonObject.GetComponent<ShopButton>();
                     
@@ -146,28 +143,21 @@ namespace Shop_V1.Scripts
                     totalCreatedButton++;
                 }
             }
-
-            // A message indicating all shop buttons have been created could be shown when applicable
-            // Debug.Log("All shop buttons created");
         }
         
         private void InitializeSkinUnlockStatus()
         {
             if (SaveManager.instance.saveData.firstSetUnlockStatus == 0)
             {
-                // Clear existing skin unlock status
                 SaveManager.instance.saveData.skinsUnlockStatus.Clear();
-
-                // Initialize skin unlock status for each button
+                
                 for (int i = 0; i < shopButtons.Count; i++)
                 {
                     SaveManager.instance.saveData.skinsUnlockStatus.Add(i == 0);
                 }
-
-                // Update first set unlock status
+                
                 SaveManager.instance.saveData.firstSetUnlockStatus = 1;
-
-                // Save the updated data
+                
                 SaveManager.instance.Save();
             }
         }
@@ -202,8 +192,7 @@ namespace Shop_V1.Scripts
         private int[] GetPageEndAmounts()
         {
             int[] pageEndAmounts = new int[shopOptions.rarityOptions.Count];
-
-            // Calculate the end amounts for each rarity option
+            
             for (int i = 0; i < shopOptions.rarityOptions.Count; i++)
             {
                 if (i == 0)
@@ -224,8 +213,7 @@ namespace Shop_V1.Scripts
             int[] pageEndAmounts = GetPageEndAmounts();
             
             bool[] pageFullBuyStatuses = new bool[pageEndAmounts.Length];
-
-            // Check if each page is fully bought
+            
             for (int i = 0; i < pageEndAmounts.Length; i++)
             {
                 int startAmount = (i == 0) ? 0 : pageEndAmounts[i - 1];
@@ -251,8 +239,7 @@ namespace Shop_V1.Scripts
         private int[] GetRarityCosts()
         {
             int[] rarityCosts = new int[shopOptions.rarityOptions.Count];
-
-            // Get the cost of each rarity option
+            
             for (int i = 0; i < shopOptions.rarityOptions.Count; i++)
             {
                 rarityCosts[i] = shopOptions.rarityOptions[i].rarityCost;

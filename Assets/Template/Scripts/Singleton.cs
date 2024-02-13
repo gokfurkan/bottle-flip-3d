@@ -2,16 +2,16 @@
 
 public class Singleton<T> : MonoBehaviour where T : Component
 {
-    public static T Instance { get; private set; }
+    public static T instance { get; private set; }
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(this);
         }
         else
         {
-            Instance = this as T;
+            instance = this as T;
             Initialize();
         }
     }
