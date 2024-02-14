@@ -5,6 +5,8 @@ namespace Game.Dev.Scripts.Player
 {
     public class InteractionController : MonoBehaviour
     {
+        public ParticleSystem interactionSmoke;
+        
         private void OnCollisionEnter(Collision collision)
         {
             if (GameManager.instance.isLevelEnd) return;
@@ -16,6 +18,7 @@ namespace Game.Dev.Scripts.Player
             }
             
             BusSystem.CallResetJumpAmount();
+            interactionSmoke.Play();
         }
     }
 }
