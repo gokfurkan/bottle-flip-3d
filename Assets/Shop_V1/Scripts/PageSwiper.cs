@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Game.Dev.Scripts;
 using Template.Scripts;
@@ -91,34 +92,11 @@ namespace Shop_V1.Scripts
         {
             var currentSkin = SaveManager.instance.saveData.currentSkin;
             
-            int[] pageEndAmounts = new int[shopOptions.rarityOptions.Count];
-
-            // Calculate the end amounts for each rarity option
-            for (int i = 0; i < shopOptions.rarityOptions.Count; i++)
-            {
-                if (i == 0)
-                {
-                    pageEndAmounts[i] = shopOptions.rarityOptions[i].buttonAmount;
-                }
-                else
-                {
-                    pageEndAmounts[i] = pageEndAmounts[i - 1] + shopOptions.rarityOptions[i].buttonAmount;
-                }
-            }
+            var pageEndAmounts = shopOptions.rarityOptions.Select((option, index) =>
+                shopOptions.rarityOptions.Take(index + 1).Sum(opt => opt.buttonAmount)).ToArray();
             
-            if (currentSkin < pageEndAmounts[0])
-            {
-                currentPage = 1;
-            }
-            else if (currentSkin >= pageEndAmounts[0] && currentSkin < pageEndAmounts[1])
-            {
-                currentPage = 2;
-            }
-            else
-            {
-                currentPage = 3;
-            }
-
+            currentPage = pageEndAmounts.TakeWhile(endAmount => currentSkin >= endAmount).Count() + 1;
+            
             MovePage();
         }
     }
