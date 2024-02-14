@@ -535,6 +535,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4146367876887556245, guid: 7423056963e2fa94c841e490ea742a61, type: 3}
   m_PrefabInstance: {fileID: 4146367877034637511}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1035347319 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3423404399026435236, guid: 201912f3cdf108d4eb8451609970bfce, type: 3}
+  m_PrefabInstance: {fileID: 733116623464286325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1085888367
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +617,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4694648448748619712, guid: 033b761000b536c4f8304de17c653371, type: 3}
   m_PrefabInstance: {fileID: 4694648450146998553}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1852027427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3640506505475666649, guid: 201912f3cdf108d4eb8451609970bfce, type: 3}
+  m_PrefabInstance: {fileID: 733116623464286325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1852027432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852027427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f9bb31085a46378a47d1872147e62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelType: 11
 --- !u!4 &2041285432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 156821055525419443, guid: 61db77c40ed36a54580e1ae5b0561047, type: 3}
@@ -1526,13 +1549,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7907392524745459754}
     - target: {fileID: 2774389157529352231, guid: 0b4004255b89e644eb688e0c7a1f7af8, type: 3}
+      propertyPath: spawnPos
+      value: 
+      objectReference: {fileID: 1035347319}
+    - target: {fileID: 2774389157529352231, guid: 0b4004255b89e644eb688e0c7a1f7af8, type: 3}
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 7907392524745459754}
     - target: {fileID: 2774389157529352231, guid: 0b4004255b89e644eb688e0c7a1f7af8, type: 3}
+      propertyPath: targetPos
+      value: 
+      objectReference: {fileID: 8693557317843834508}
+    - target: {fileID: 2774389157529352231, guid: 0b4004255b89e644eb688e0c7a1f7af8, type: 3}
       propertyPath: economyIcon
       value: 
       objectReference: {fileID: 8693557317843834507}
+    - target: {fileID: 2774389157529352231, guid: 0b4004255b89e644eb688e0c7a1f7af8, type: 3}
+      propertyPath: moneyPrefab
+      value: 
+      objectReference: {fileID: 8948021286426300990, guid: 6e4a71c8f7175a247a685455350128d6, type: 3}
     - target: {fileID: 2774389157529352231, guid: 0b4004255b89e644eb688e0c7a1f7af8, type: 3}
       propertyPath: economySprites.Array.size
       value: 2
@@ -2594,3 +2629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &8693557317843834508 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7964892841951908447, guid: 4aaf728dff00361419698386f32146c0, type: 3}
+  m_PrefabInstance: {fileID: 8693557317843834506}
+  m_PrefabAsset: {fileID: 0}

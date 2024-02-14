@@ -26,6 +26,8 @@ MonoBehaviour:
   targetFPS: 60
   winPanelDelay: 0.25
   losePanelDelay: 1.25
+  endContinueDelay: 1.5
+  spawnMoneyAmount: 8
   levelText: LEVEL
   levelCompletedText: COMPLETED
   levelFailedText: FAILED

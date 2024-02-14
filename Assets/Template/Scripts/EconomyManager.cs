@@ -8,6 +8,9 @@ namespace Template.Scripts
     public class EconomyManager : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI moneyText;
+        [SerializeField] private Money moneyPrefab;
+        [SerializeField] private RectTransform spawnPos;
+        [SerializeField] private RectTransform targetPos;
         private int oldMoneyTarget, newMoneyTarget;
 
         private void OnEnable()
@@ -15,6 +18,7 @@ namespace Template.Scripts
             BusSystem.OnAddMoneys += AddMoneys;
             BusSystem.OnResetMoneys += ResetMoneys;
             BusSystem.OnSetMoneys += SetMoneyText;
+            BusSystem.OnSpawnMoneys += SpawnMoneys;
         }
 
         private void OnDisable()
@@ -22,11 +26,23 @@ namespace Template.Scripts
             BusSystem.OnAddMoneys -= AddMoneys;
             BusSystem.OnResetMoneys -= ResetMoneys;
             BusSystem.OnSetMoneys -= SetMoneyText;
+            BusSystem.OnSpawnMoneys -= SpawnMoneys;
         }
 
         private void Start()
         {
             BusSystem.CallSetMoneys();
+        }
+        
+        private void SpawnMoneys()
+        {
+            Debug.Log("VAR");
+            for (int i = 0; i < InitializeManager.instance.settingsData.spawnMoneyAmount; i++)
+            {
+                Debug.Log("VAR");
+                var money = Instantiate(moneyPrefab, spawnPos);
+                money.InitMoney(targetPos);
+            }
         }
 
         #region AddMoney

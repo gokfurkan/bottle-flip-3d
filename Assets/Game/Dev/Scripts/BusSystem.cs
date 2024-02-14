@@ -15,6 +15,9 @@ namespace Game.Dev.Scripts
         public static Action OnSetMoneys;
         public static void CallSetMoneys() { OnSetMoneys?.Invoke(); }
         
+        public static Action OnSpawnMoneys;
+        public static void CallSpawnMoneys() { OnSpawnMoneys?.Invoke(); }
+        
         //Camera
 
         public static Action <CameraType , float> OnChangeCameraType;

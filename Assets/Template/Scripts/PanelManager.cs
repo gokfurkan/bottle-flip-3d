@@ -74,6 +74,8 @@ namespace Template.Scripts
                 Activate(PanelType.Win);
                 
                 BusSystem.CallAddMoneys(gameOptions.winIncome);
+                
+                BusSystem.CallSpawnMoneys();
             }
             else
             {
@@ -83,6 +85,10 @@ namespace Template.Scripts
                 
                 BusSystem.CallAddMoneys(gameOptions.loseIncome);
             }
+            
+            yield return new WaitForSeconds(InitializeManager.instance.settingsData.endContinueDelay);
+                
+            Activate(PanelType.EndContinue);
         }
 
         public void ActivateSettingsPanel()

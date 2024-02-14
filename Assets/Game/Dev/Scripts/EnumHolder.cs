@@ -19,6 +19,7 @@
         LevelProgress,
         Shop,
         OpenShop,
+        EndContinue,
     }
 
     public enum LevelTextType

@@ -21,6 +21,8 @@ namespace Template.Scripts
         [Header("UI")] 
         public float winPanelDelay;
         public float losePanelDelay;
+        public float endContinueDelay;
+        public int spawnMoneyAmount;
         
         [Space(10)]
         public string levelText;
