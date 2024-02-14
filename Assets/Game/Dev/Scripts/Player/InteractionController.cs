@@ -1,4 +1,5 @@
-﻿using Game.Dev.Scripts.Interfaces;
+﻿using System;
+using Game.Dev.Scripts.Interfaces;
 using UnityEngine;
 
 namespace Game.Dev.Scripts.Player
@@ -6,7 +7,7 @@ namespace Game.Dev.Scripts.Player
     public class InteractionController : MonoBehaviour
     {
         public ParticleSystem interactionSmoke;
-        
+
         private void OnCollisionEnter(Collision collision)
         {
             if (GameManager.instance.isLevelEnd) return;
