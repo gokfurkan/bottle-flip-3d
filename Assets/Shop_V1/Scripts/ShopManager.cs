@@ -184,7 +184,7 @@ namespace Shop_V1.Scripts
             bool HasMoney()
             {
                 int money = SaveManager.instance.saveData.GetMoneys();
-                return money > GetCurrentRarityCost();
+                return money >= GetCurrentRarityCost();
             }
 
             unlockButtonClick.enabled = HasMoney();
