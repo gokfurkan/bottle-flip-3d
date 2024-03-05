@@ -15,14 +15,14 @@ MonoBehaviour:
   nextSceneAfterLoad: 1
   loadFillOption:
   - stageAmount: 0.3
-    stageDuration: 0.5
-    nextStageDelay: 1
+    stageDuration: 0.35
+    nextStageDelay: 0.5
   - stageAmount: 0.75
-    stageDuration: 0.5
-    nextStageDelay: 1
+    stageDuration: 0.4
+    nextStageDelay: 0.6
   - stageAmount: 1
-    stageDuration: 0.5
-    nextStageDelay: 1
+    stageDuration: 0.35
+    nextStageDelay: 0.25
   targetFPS: 60
   winPanelDelay: 0.25
   losePanelDelay: 1.25

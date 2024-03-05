@@ -1826,6 +1826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: can_levelProgress
       objectReference: {fileID: 0}
+    - target: {fileID: 8112615732162148513, guid: 031b6c4a8c23c97428b701a3566d526c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8112615732162148525, guid: 031b6c4a8c23c97428b701a3566d526c, type: 3}
       propertyPath: m_Pivot.x
       value: 0

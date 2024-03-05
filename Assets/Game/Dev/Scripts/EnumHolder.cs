@@ -44,7 +44,9 @@
 
     public enum AudioType
     {
-        GameStart,
+        Win,
+        Lose,
+        Bottle,
     }
     
     public enum SkinRarity

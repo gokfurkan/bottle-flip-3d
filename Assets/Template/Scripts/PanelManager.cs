@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Game.Dev.Scripts;
 using Game.Dev.Scripts.ScriptableSO;
+using MoreMountains.NiceVibrations;
 using UnityEngine;
+using AudioType = Game.Dev.Scripts.AudioType;
 
 namespace Template.Scripts
 {
@@ -47,12 +49,12 @@ namespace Template.Scripts
             Activate(PanelType.OpenSettings);
             Activate(PanelType.OpenShop);
             Activate(PanelType.Restart);
-            Activate(PanelType.LevelProgress);
+            // Activate(PanelType.LevelProgress);
         }
 
         private void ActivateGamePanel()
         {
-            Activate(PanelType.OpenShop , false);
+            DisableAll();
             Activate(PanelType.LevelProgress);
         }
 
@@ -69,6 +71,9 @@ namespace Template.Scripts
         {
             if (win)
             {
+                AudioManager.instance.Play(AudioType.Win);
+                HapticManager.instance.PlayHaptic(HapticTypes.MediumImpact);
+                
                 yield return new WaitForSeconds(InitializeManager.instance.settingsData.winPanelDelay);
                 
                 Activate(PanelType.Win);
@@ -79,6 +84,9 @@ namespace Template.Scripts
             }
             else
             {
+                AudioManager.instance.Play(AudioType.Lose);
+                HapticManager.instance.PlayHaptic(HapticTypes.HeavyImpact);
+                
                 yield return new WaitForSeconds(InitializeManager.instance.settingsData.losePanelDelay);
                 
                 Activate(PanelType.Lose);

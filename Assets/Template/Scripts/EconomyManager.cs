@@ -36,10 +36,8 @@ namespace Template.Scripts
         
         private void SpawnMoneys()
         {
-            Debug.Log("VAR");
             for (int i = 0; i < InitializeManager.instance.settingsData.spawnMoneyAmount; i++)
             {
-                Debug.Log("VAR");
                 var money = Instantiate(moneyPrefab, spawnPos);
                 money.InitMoney(targetPos);
             }

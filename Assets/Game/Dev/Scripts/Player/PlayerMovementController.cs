@@ -1,5 +1,7 @@
 ﻿using System;
 using Game.Dev.Scripts.ScriptableSO;
+using MoreMountains.NiceVibrations;
+using Template.Scripts;
 using UnityEngine;
 
 namespace Game.Dev.Scripts.Player
@@ -67,6 +69,9 @@ namespace Game.Dev.Scripts.Player
             
             isJumping = true;
             jumpStartTime = Time.time;
+            
+            AudioManager.instance.Play(AudioType.Bottle);
+            HapticManager.instance.PlayHaptic(HapticTypes.LightImpact);
         }
 
         private void PerformArcJump()

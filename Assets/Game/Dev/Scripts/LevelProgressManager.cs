@@ -10,7 +10,8 @@ namespace Game.Dev.Scripts
         public Image levelProgressFill;
         public TextMeshProUGUI currentLevelText;
         public TextMeshProUGUI nextLevelText;
-            
+
+        private bool canFill;
         private float totalDistanceX;
         private Transform playerPos;
         private Transform finishPos;
@@ -30,6 +31,8 @@ namespace Game.Dev.Scripts
 
         private void Start()
         {
+            canFill = true;
+            
             SetLevelTexts();
         }
 
@@ -41,10 +44,15 @@ namespace Game.Dev.Scripts
         private void SetCurrentDistance()
         {
             if (!GameManager.instance.isLevelPlaying) return;
+            if (!canFill) return;
             
             float currentDistanceX = Mathf.Abs(playerPos.position.x - finishPos.position.x);
             float progressPercentageX = 1 - (currentDistanceX / totalDistanceX);
             levelProgressFill.fillAmount = progressPercentageX;
+            if (levelProgressFill.fillAmount >= 0.995f)
+            {
+                canFill = false;
+            }
         }
         
         private void SetPlayerPos(Transform player)

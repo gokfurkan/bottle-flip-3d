@@ -17,5 +17,5 @@ MonoBehaviour:
     jumpDistanceX: 5
     jumpDistanceY: 2
     jumpHeight: 3
-    jumpDuration: 0.85
+    jumpDuration: 0.75
     rotateAmountPerJump: 360
