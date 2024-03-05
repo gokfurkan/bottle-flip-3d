@@ -34,6 +34,7 @@ namespace Game.Dev.Scripts.Player
         
         private void PlayerDead()
         {
+            trail.enabled = false;
             BusSystem.CallLevelEnd(false);
         }
 
